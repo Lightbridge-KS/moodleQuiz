@@ -1,15 +1,15 @@
 Package: moodleQuiz
-Title: What the Package Does (One Line, Title Case)
+Title: High-level functions for Wrangling, Combine, and Analyse Moodle Quiz Report
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Kittipos",
+           family = "Sirivongrungson",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+           email = "kittipos.sir@mahidol.edu")
+Description: This package provides high-level ready to use function that performs data wrangling,  
+    aggregration, and analysis on Moodle Quiz Report (i.e., Grades Report and Responses Report)
+License: MIT + file LICENSE
+URL: https://github.com/Lightbridge-AI/moodleQuiz
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
