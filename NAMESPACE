@@ -2,5 +2,8 @@
 
 export("%>%")
 export(get_quiz_attr)
+export(split_cloze)
+export(split_cloze_col)
 importFrom(lubridate,dmy_hm)
 importFrom(magrittr,"%>%")
+importFrom(rlang,":=")
