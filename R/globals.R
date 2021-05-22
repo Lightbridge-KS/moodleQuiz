@@ -1,4 +1,4 @@
 ### Global variable
 
 utils::globalVariables(c("Email address", "Started", "Email",
-                         "Name"))
+                         "Name", "State", "Encode", "ID"))
