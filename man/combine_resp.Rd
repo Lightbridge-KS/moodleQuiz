@@ -2,7 +2,7 @@
 % Please edit documentation in R/combine_resp.R
 \name{combine_resp}
 \alias{combine_resp}
-\title{Combine Student Responses}
+\title{Combine Student's Responses}
 \usage{
 combine_resp(
   data,
@@ -64,7 +64,7 @@ So that, "Response" columns from each data.frame are sit together in a single da
 }
 \description{
 \code{\link[=combine_resp]{combine_resp()}} is a generic function that combine student responses from \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Responses report(s)} (not Grades report).
-If the moodle responses report has response column(s) that contained \href{https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type}{embedded answers (Cloze)}, you have an option to split them into different parts (one column for each).
+If the Moodle responses report has response column(s) that contained \href{https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type}{embedded answers (Cloze)}, you have an option to split them into different parts (one column for each).
 Other functionality are similar to \code{\link[=check_sub]{check_sub()}} such as: encode & filter student's attempts by state (i.e., "Finished" or "In progress") and started time ("Started on" column),
 cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 }

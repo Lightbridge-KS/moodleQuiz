@@ -56,7 +56,6 @@ check_sub <- function(data,
 
 
 #' @export
-#' @describeIn check_sub
 check_sub.list <- function(data,
                            id_regex = ".*", # Extract ID from Email
                            sep_name = " ", # Separate First name and Surname
@@ -107,7 +106,6 @@ check_sub.list <- function(data,
 
 
 #' @export
-#' @describeIn check_sub
 check_sub.data.frame <- function(data,
                                  # Clean
                                  id_regex = ".*", # Extract ID from Email

@@ -2,10 +2,10 @@
 
 
 
-#' Combine Student Responses
+#' Combine Student's Responses
 #'
 #' [combine_resp()] is a generic function that combine student responses from [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report).
-#' If the moodle responses report has response column(s) that contained [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type), you have an option to split them into different parts (one column for each).
+#' If the Moodle responses report has response column(s) that contained [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type), you have an option to split them into different parts (one column for each).
 #' Other functionality are similar to [check_sub()] such as: encode & filter student's attempts by state (i.e., "Finished" or "In progress") and started time ("Started on" column),
 #' cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 #'
@@ -61,7 +61,7 @@ combine_resp <- function(data,
 
 # List method -------------------------------------------------------------
 
-#' @describeIn combine_resp
+
 #' @export
 combine_resp.list <- function(data,
                               # Clean
@@ -110,7 +110,7 @@ combine_resp.list <- function(data,
 
 # Data.frame method -------------------------------------------------------
 
-#' @describeIn combine_resp
+
 #' @export
 combine_resp.data.frame <- function(data,
                                     # Clean
