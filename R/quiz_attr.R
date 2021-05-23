@@ -82,6 +82,35 @@ get_max_grade <- function(df_raw) {
 
 }
 
+# Maximum Responses of Responses Report ---------------------------------------------------
+
+
+#' Get Maxiumn Responses of Moodle Responses report
+#'
+#' @param df_resp A data.frame of Moodle Responses report
+#' @param count_cloze_parts (Logical) If `TRUE`, counts each parts of Cloze columns.
+#'  If `FALSE`, count each Cloze column as 1.
+#'
+#' @return An Integer
+#'
+get_max_resp <- function(df_resp, count_cloze_parts = F) {
+
+  # Length of all non-cloze response col
+  noncloze_len <- length(get_noncloze_resp_colnm(df_resp))
+  # Length of Cloze col
+  cloze_len <- if(count_cloze_parts){
+    # Sum of all cloze parts
+    sum( get_cloze_attr(df_resp)$parts )
+  }else{
+    # Omit NA in case of `get_cloze_col_name` return NA if no cloze column
+    get_cloze_col_names(df_resp) %>% length()
+  }
+  # Combine length
+  tot_len <- noncloze_len + cloze_len
+  tot_len
+}
+
+
 
 # Questions Number & Max --------------------------------------------------
 
