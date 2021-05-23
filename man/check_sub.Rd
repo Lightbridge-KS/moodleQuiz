@@ -12,7 +12,7 @@ check_sub(
   encode = c(1, 0),
   choose_encode = c("max", "min", "all"),
   choose_time = c("first", "last", "all"),
-  ...
+  sep_col = "_"
 )
 }
 \arguments{
@@ -33,7 +33,7 @@ For example: by default, in the "State" column, "Finished" values will be encode
 \item{choose_encode}{A character to filter student's attempt by the \code{encode}ing.
 \itemize{
 \item \strong{"max"} (default): return rows that have maximum encoding of each students.
-\item \strong{"min"}: return rows that have mininum encoding of each students.
+\item \strong{"min"}: return rows that have minimum encoding of each students.
 \item \strong{"all"}: no filter applied, return all rows.
 }}
 
@@ -45,7 +45,7 @@ This filter applies \strong{after} \code{choose_encode} has been applied to the 
 \item \strong{"all"}: no filter applied, return all rows after applying \code{choose_encode}
 }}
 
-\item{...}{If the \code{data} is a named list of data.frame, \code{...} passed to the argument \code{sep_col} indicate a character separation between names of list and "state" or "encode" columns.}
+\item{sep_col}{(Character) If \code{data} is a named list of data.frame, \code{sep_col} indicate a character separation between names of list and "state" or "encode" columns.}
 }
 \value{
 \strong{A data.frame}, its output content is determined by class of its first argument: \code{data}.

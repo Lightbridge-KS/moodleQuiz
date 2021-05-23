@@ -20,15 +20,14 @@
 #'   "In progress" will be encoded as `0`.
 #' @param choose_encode A character to filter student's attempt by the `encode`ing.
 #'   * \strong{"max"} (default): return rows that have maximum encoding of each students.
-#'   * \strong{"min"}: return rows that have mininum encoding of each students.
+#'   * \strong{"min"}: return rows that have minimum encoding of each students.
 #'   * \strong{"all"}: no filter applied, return all rows.
 #' @param choose_time A character to filter student's attempt by started time (determined by "Started on" column in Moodle Quiz report).
 #'   This filter applies **after** `choose_encode` has been applied to the data.
 #'   * \strong{"first"} (default): return rows that represent first attempt of each students.
 #'   * \strong{"last"}: return rows that represent last attempt of each students.
 #'   * \strong{"all"}: no filter applied, return all rows after applying `choose_encode`
-#' @param ... If the `data` is a named list of data.frame, `...` passed to the argument `sep_col` indicate a character separation between names of list and "state" or "encode" columns.
-#'
+#' @param sep_col (Character) If `data` is a named list of data.frame, `sep_col` indicate a character separation between names of list and "state" or "encode" columns.
 #' @return **A data.frame**, its output content is determined by class of its first argument: `data`.
 #'   * If the `data` is a data.frame; the output is an encoded, filtered, and cleaned data.frame of Moodle Quiz report.
 #'   * If the `data` is a named list of data.frame; the output is the same as previously described, but all Moodle Quiz reports are [full-joined](https://dplyr.tidyverse.org/reference/mutate-joins.html) together by column "Name" and "ID".
@@ -45,7 +44,7 @@ check_sub <- function(data,
                       # encode argument `state` to
                       choose_encode = c("max", "min", "all"),
                       choose_time = c("first", "last", "all"),
-                      ... # passed to `sep_col`
+                      sep_col = "_"
 ) {
 
   UseMethod("check_sub")
@@ -66,8 +65,8 @@ check_sub.list <- function(data,
                            encode = c(1,0),
                            choose_encode = c("max", "min", "all"),
                            choose_time = c("first", "last", "all"),
-                           sep_col = "_", # Separation of State and Encode column names
-                           ...
+                           sep_col = "_" # Separation of State and Encode column names
+
 ) {
 
   if(!is_named_list_data.frame(data)) stop("`data` must be named list of data.frame", call. = F)
@@ -118,7 +117,7 @@ check_sub.data.frame <- function(data,
                                  encode = c(1,0),
                                  choose_encode = c("max", "min", "all"),
                                  choose_time = c("first", "last", "all"),
-                                 ...
+                                 ... # To absorb sep_col argument from generic
 ) {
 
   if(!is_report(data)) stop("`data` is not a moodle quiz report", call. = F)
