@@ -2,9 +2,12 @@
 
 S3method(check_sub,data.frame)
 S3method(check_sub,list)
+S3method(combine_resp,data.frame)
+S3method(combine_resp,list)
 export("%>%")
 export(check_sub)
 export(clean_moodle)
+export(combine_resp)
 export(get_quiz_attr)
 export(split_cloze)
 export(split_cloze_col)
