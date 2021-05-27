@@ -32,11 +32,17 @@
 #'   set `count_cloze_parts = TRUE` will count individual parts of each Cloze columns. If `FALSE`, then it will count each Cloze column as 1 count.
 #' @param sep_col (Character) If `data` is a named list of data.frame, `sep_col` indicate a character separation between names of list and "State" or "Count_resp" columns.
 #'
+#'
 #' @return **A data.frame**, its output content is determined by class of its first argument: `data`.
 #'   * If the `data` is a data.frame; the output is an encoded, filtered, and cleaned data.frame of Moodle Responses report.
 #'   And the "Count_resp" column is added with maximum number of count appended at the column name.
 #'   * If the `data` is a named list of data.frame; the output is the same as previously described, but all Moodle Quiz reports are [full-joined](https://dplyr.tidyverse.org/reference/mutate-joins.html) together by column "Name" and "ID".
 #'   So that, "Count_resp" columns from each data.frame are sit together in a single data.frame, and "Total" column is added at the last column to indicate total count.
+#'
+#' @details **Counting Mechanism**:
+#'   [count_resp()] gives 1 count to 1 responses cell if one or more characters were found.
+#'   Blank or "-" (dash) response will not be counted.
+#'
 #' @export
 #'
 #' @examples NULL

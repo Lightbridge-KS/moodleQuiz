@@ -67,6 +67,11 @@ you have an option to count them as a whole (1 Cloze column = 1 count) or as ind
 Other functionality are similar to \code{\link[=check_sub]{check_sub()}} such as: encode & filter student's attempts by state (i.e., "Finished" or "In progress") and started time ("Started on" column),
 cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 }
+\details{
+\strong{Counting Mechanism}:
+\code{\link[=count_resp]{count_resp()}} gives 1 count to 1 responses cell if one or more characters were found.
+Blank or "-" (dash) response will not be counted.
+}
 \examples{
 NULL
 }
