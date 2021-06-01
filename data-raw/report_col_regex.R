@@ -2,8 +2,9 @@
 
 usethis::use_data(report_col_regex, overwrite = TRUE)
 
+
 report_col_regex <- list(
-  moodle = c("Surname", "First name", "Email address", "State", "Grade", "(Q)|(Response)"),
+  moodle = c("Surname", "First name", "Email address", "State"),
   grades = c("Surname", "First name", "Email address", "State", "Grade", "Q"),
-  responses = c("Surname", "First name", "Email address", "State", "Grade", "Response")
+  responses = c("Surname", "First name", "Email address", "State", "Response")
 )
