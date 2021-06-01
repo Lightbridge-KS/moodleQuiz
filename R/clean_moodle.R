@@ -30,7 +30,9 @@ clean_moodle <- function(data,
 ) {
 
   if(!is_report(data)) stop("This is not a moodle quiz report.", call. = F)
-  quiz_attr <- get_quiz_attr(data)
+
+  q_max_no_df <- get_questions_no_max(data)
+  resp_no <- get_responses_no(data)
 
   df_cleaned_1 <- data %>%
     # Filter out "Overall average" in the last row of Grade report
@@ -74,7 +76,7 @@ clean_moodle <- function(data,
   if(is_grades_report(data)){
 
     df_cleaned_2 <- df_cleaned_1 %>%
-      dplyr::rename_with(.fn = ~paste0("Q", quiz_attr$q_no),
+      dplyr::rename_with(.fn = ~paste0("Q", q_max_no_df$q_no),
                          .cols =  tidyselect::starts_with("Q"))
     if(force_numeric){
       # Format Q_xx column to numeric; Even if it's "Requires grading" or dashed
@@ -92,7 +94,7 @@ clean_moodle <- function(data,
   if(is_responses_report(data)){
 
     df_cleaned_2 <- df_cleaned_1 %>%
-      dplyr::rename_with(.fn = ~paste0("Response_", quiz_attr$resp_no),
+      dplyr::rename_with(.fn = ~paste0("Response_", resp_no),
                          .cols =  tidyselect::starts_with("R"))
   }
 
