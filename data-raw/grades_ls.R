@@ -4,6 +4,7 @@ library(dplyr)
 library(purrr)
 library(readr)
 
+source("data-raw/simulation_helper.R")
 
 # Read real Moodle Grades report data -------------------------------------
 
