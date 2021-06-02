@@ -1,6 +1,4 @@
-## code to prepare `report_col_regex` dataset goes here
-
-usethis::use_data(report_col_regex, overwrite = TRUE)
+## Regular Expression Table to validate report
 
 
 report_col_regex <- list(
@@ -8,3 +6,5 @@ report_col_regex <- list(
   grades = c("Surname", "First name", "Email address", "State", "Grade", "Q"),
   responses = c("Surname", "First name", "Email address", "State", "Response")
 )
+
+usethis::use_data(report_col_regex, overwrite = TRUE, internal = TRUE)
