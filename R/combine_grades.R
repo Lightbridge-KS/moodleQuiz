@@ -90,6 +90,9 @@ combine_grades.list <- function(data,
   is_data_rep <- purrr::every(data, is_report)
   if(!is_data_rep) stop("Elements of `data` must be Moodle Quiz report",call. = F)
 
+  has_grade_col <- purrr::every(data, ~is_regex_in_names(.x, "Grade"))
+  if(!has_grade_col) stop("Elements of `data` must have 'Grade' column.", call. = F)
+
   is_nyg_err <- all(!force_grade, purrr::every(data, is_some_grade_nyg))
   if(is_nyg_err) stop("Some students are 'Not yet graded'. If you want to grade anyway, choose `force_grade = TRUE`.", call. = F)
 
@@ -150,6 +153,9 @@ combine_grades.data.frame <- function(data,
 ) {
 
   if(!is_report(data)) stop("`data` is not a Moodle Quiz report.", call. = F)
+
+  has_grade_col <- is_regex_in_names(data, "Grade")
+  if(!has_grade_col) stop("`data` must has 'Grade' column.", call. = F)
 
   is_nyg_err <- all(!force_grade, is_some_grade_nyg(data))
   if(is_nyg_err) stop("Some students are 'Not yet graded'. If you want to grade anyway, choose `force_grade = TRUE`.", call. = F)
