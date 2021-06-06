@@ -58,7 +58,7 @@ clean_moodle <- function(data,
     # Reformat Stated Date to POSIXct
     dplyr::mutate(Started = lubridate::dmy_hm(Started)) %>%
     # Replace "/" at Grade/xx column
-    dplyr::rename_with(.fn = ~str_replace(.x, "/", "_"))
+    dplyr::rename_with(.fn = ~stringr::str_replace(.x, "/", "_"))
 
   # Format Grade column to numeric; Even if it's "Not yet graded" or dashed
   if(force_numeric){
