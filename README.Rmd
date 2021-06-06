@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# moodleQuiz
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The goal of the `moodleQuiz` package is to perform data wrangling, merging and analyse [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports) with simple ready-to-use functions.
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("Lightbridge-AI/moodleQuiz")
+```
+
+## Combine Student Grades
+
+This is an example of Moodle Grades report:
+
+```{r grades_rep ex}
+library(moodleQuiz)
+data("grades_ls")
+
+head(grades_ls$Quiz_1)
+```
+
+Suppose that you have multiple reports, you can combine them in to a list of data frame
+
+```{r grades_ls}
+# the example data "grades_ls" is a named list of data frame.
+class(grades_ls)
+purrr::map(grades_ls, class)
+```
+
+Then, you can combine multiple Grades report to a single data frame with: `combine_grades()`
+
+```{r example}
+combine_grades(grades_ls)
+```
