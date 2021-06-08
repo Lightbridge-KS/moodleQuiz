@@ -26,6 +26,37 @@ is_regex_in_names <- function(x, regex, verbose = F){
 
 }
 
+#' Is Regular Expression presented in given column(s)
+#'
+#' @param data A data.frame
+#' @param cols <tidy-select> columns to test
+#' @param regex Character vector, specify regular expressions
+#' @param match_rows (Character) one of "any": any rows that can match `regex`, "all": all rows must match `regex`
+#' @param na.rm Logical, Passed to `match_rows`
+#'
+#' @return Named logical vector
+#'
+is_regex_in_cols <- function(data,
+                             cols = everything(),
+                             regex,
+                             match_rows = c("any", "all"),
+                             na.rm = TRUE
+) {
+
+  match_rows <- match.arg(match_rows)
+  cols <- rlang::enquo(cols)
+  fn <- switch (match_rows,
+                "any" = { ~any(.x, na.rm = na.rm) }, "all" = { ~all(.x, na.rm = na.rm) }
+  )
+
+  data %>%
+    dplyr::distinct(dplyr::across(!!cols)) %>%
+    purrr::map(unique) %>%
+    purrr::map(~stringr::str_detect(.x, regex)) %>%
+    purrr::map_lgl(fn)
+
+}
+
 #' Print Message by a Separator
 #'
 #' Print message from character vector by a given separator.
