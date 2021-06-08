@@ -86,6 +86,24 @@ get_noncloze_resp_colnm <- function(df) {
 }
 
 
+# Is it a Cloze col -------------------------------------------------------
+
+
+#' Is A Column contains Cloze Answers
+#'
+#' @param data A data.frame of Moodle Responses report
+#' @param col (tidy-select) column to test
+#'
+#' @return Logical: `TRUE` if `col` is a Cloze column.
+#'
+is_cloze_col <- function(data, col) {
+
+  col <- rlang::enquo(col)
+  data %>%
+    is_regex_in_cols(!!col, regex = "part [:digit:]+:", match_rows = "any")
+
+}
+
 
 # Has cloze column --------------------------------------------------------
 
