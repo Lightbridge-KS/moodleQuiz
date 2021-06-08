@@ -29,7 +29,7 @@ is_regex_in_names <- function(x, regex, verbose = F){
 #' Is Regular Expression presented in given column(s)
 #'
 #' @param data A data.frame
-#' @param cols <tidy-select> columns to test
+#' @param cols (tidy-select) columns to test
 #' @param regex Character vector, specify regular expressions
 #' @param match_rows (Character) one of "any": any rows that can match `regex`, "all": all rows must match `regex`
 #' @param na.rm Logical, Passed to `match_rows`

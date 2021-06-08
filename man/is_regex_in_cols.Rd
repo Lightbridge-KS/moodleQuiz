@@ -15,7 +15,7 @@ is_regex_in_cols(
 \arguments{
 \item{data}{A data.frame}
 
-\item{cols}{<tidy-select> columns to test}
+\item{cols}{(tidy-select) columns to test}
 
 \item{regex}{Character vector, specify regular expressions}
 
