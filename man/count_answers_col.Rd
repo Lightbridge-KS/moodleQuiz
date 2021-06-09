@@ -2,7 +2,7 @@
 % Please edit documentation in R/count_answers.R
 \name{count_answers_col}
 \alias{count_answers_col}
-\title{Count Student's Answers}
+\title{Count Student's Answers from a Response Column}
 \usage{
 count_answers_col(
   data,
@@ -38,7 +38,7 @@ If \code{count_cloze_parts = TRUE}: it will count by each "Parts" of the Cloze q
 A data.frame
 }
 \description{
-Count student's answers from a given "Response" column. This function will count depending on
+Count student's answers from a given "Response" column from a \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Responses report(s)}. This function will count depending on
 type of question. If the question is a single answer type, it will simply count the answers.
 If the question is multiple answers type, it will count by each answers (default) or by combinations of answers.
 If the question is \href{https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type}{embedded answers (Cloze)},
