@@ -1,12 +1,61 @@
 ### Count Answers from Response Columns
 
 
-# Count Answers from Column -----------------------------------------------
+# Count Answers from all responses ----------------------------------------
 
 
 #' Count Student's Answers
 #'
-#' Count student's answers from a given "Response" column. This function will count depending on
+#' [count_answers()] counts student's answers from every "Response" columns from from a [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports).
+#' This is a wrapper around [count_answers_col()] that counts from one column.
+#' Answers from Moodle's quiz can be one of 3 types: single answered, multiple answered, or [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type).
+#' Each of these answers types formatted differently in the "Response" column.
+#' [count_answers()] knows each type of answers and count the answers by the best counting method it thinks.
+#'
+#'
+#' @param data A data.frame of [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report)
+#' @param count_type A character indicate type of counting methods. Must be one of:
+#'   * \strong{"auto"} (default): This function detects the type of questions automatically and choose the best counting method it thinks for each type.
+#'   * \strong{"single"}: It will simply count each answers by assuming that the question is a single answer type.
+#'     If the question is multiple answers type, counts of every combinations of the answers will be returned.
+#'   * \strong{"multi"}: If the question is multiple answers type, this will give the count be each answers.
+#'   * \strong{"cloze"}: If the question is embedded answers (Cloze), this will give the count by every "Parts" of the Cloze question pooled together.
+#' @param sort (Logical) `TRUE`: sort the counted results
+#' @param round_digits Integer to round the counted percentage or `NULL` to not round.
+#'
+#' @return A data.frame
+#' @export
+#'
+#' @examples NULL
+count_answers <- function(data,
+                          count_type = c("auto", "single", "multi", "cloze"),
+                          sort = TRUE,
+                          round_digits = 2
+) {
+
+  if(!is_responses_report(data)) stop("`data` is not a Moodle Responses report.", call. = F)
+
+  resp_no <- get_responses_no(data)
+  resp_cols <- names(data) %>% stringr::str_subset("R")
+  # Automatic Count for each column
+  resp_cols %>%
+    stats::setNames(resp_no) %>%
+    purrr::map(~count_answers_col(data, col = !!.x,
+                                  count_type = count_type,
+                                  count_cloze_parts = FALSE,
+                                  sort = sort, round_digits = round_digits
+    ))  %>%
+    # Bind List to DF
+    dplyr::bind_rows(.id = "Questions")  %>%
+    tidyr::unite(col = "Answers", tidyselect::starts_with("R"), na.rm = T)
+}
+
+# Count Answers from Column -----------------------------------------------
+
+
+#' Count Student's Answers from a Response Column
+#'
+#' Count student's answers from a given "Response" column from a [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports). This function will count depending on
 #' type of question. If the question is a single answer type, it will simply count the answers.
 #' If the question is multiple answers type, it will count by each answers (default) or by combinations of answers.
 #' If the question is [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type),
