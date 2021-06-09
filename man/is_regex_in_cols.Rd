@@ -6,7 +6,7 @@
 \usage{
 is_regex_in_cols(
   data,
-  cols = everything(),
+  cols = tidyselect::everything(),
   regex,
   match_rows = c("any", "all"),
   na.rm = TRUE
