@@ -4,6 +4,7 @@
 
 #' Count Student's Responses
 #'
+#'
 #' [count_resp()] is a generic function that count responses per student from [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report).
 #' Similar to [combine_resp()], if the Moodle responses report has response column(s) that contained [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type),
 #' you have an option to count them as a whole (1 Cloze column = 1 count) or as individual parts (count each parts of Cloze column, individually).
