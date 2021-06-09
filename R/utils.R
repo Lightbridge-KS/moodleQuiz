@@ -37,7 +37,7 @@ is_regex_in_names <- function(x, regex, verbose = F){
 #' @return Named logical vector
 #'
 is_regex_in_cols <- function(data,
-                             cols = everything(),
+                             cols = tidyselect::everything(),
                              regex,
                              match_rows = c("any", "all"),
                              na.rm = TRUE
