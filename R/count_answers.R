@@ -1,6 +1,79 @@
 ### Count Answers from Response Columns
 
 
+# Count Answers from Column -----------------------------------------------
+
+
+#' Count Student's Answers
+#'
+#' Count student's answers from a given "Response" column. This function will count depending on
+#' type of question. If the question is a single answer type, it will simply count the answers.
+#' If the question is multiple answers type, it will count by each answers (default) or by combinations of answers.
+#' If the question is [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type),
+#' it will count the answers by every "Parts" of the Cloze question pooled together (default), or by each "Parts" of the Cloze question.
+#'
+#' @param data A data.frame of [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report)
+#' @param col Quoted or unquoted response column name that you want to count.
+#' @param count_type A character indicate type of counting methods. Must be one of:
+#'   * \strong{"auto"} (default): This function detects the type of question automatically and choose the best counting method it thinks.
+#'   * \strong{"single"}: It will simply count each answers by assuming that the question is a single answer type.
+#'     If the question is multiple answers type, counts of every combinations of the answers will be returned.
+#'   * \strong{"multi"}: If the question is multiple answers type, this will give the count be each answers.
+#'   * \strong{"cloze"}: If the question is embedded answers (Cloze), this will give the count by every "Parts" of the Cloze question pooled together (default).
+#'   If `count_cloze_parts = TRUE`: it will count by each "Parts" of the Cloze question.
+#' @param count_cloze_parts (Logical) Count each "Parts" of the Cloze question or not
+#' @param sort (Logical) `TRUE`: sort the counted results
+#' @param round_digits Integer to round the counted percentage or `NULL` to not round.
+#'
+#' @return A data.frame
+#' @export
+#'
+#' @examples NULL
+count_answers_col <- function(data, col,
+                              count_type = c("auto", "single", "multi", "cloze"),
+                              count_cloze_parts = FALSE, # Applies to only cloze col
+                              sort = TRUE,
+                              round_digits = 2
+) {
+
+  col <- rlang::ensym(col)
+  count_type <- rlang::arg_match(count_type)
+  is_multi <- is_multi_resp_col(data, !!col)
+  is_cloze <- is_cloze_col(data, !!col)
+
+  counted <- switch (count_type,
+                     "auto" = {
+                       if (is_cloze){ # Cloze cols
+                         count_answers_cloze_col(data, !!col, count_cloze_parts = count_cloze_parts,
+                                                 sort = sort)
+                       }else if (is_multi){ # Multi Answer col
+                         count_answers_multi_col(data, !!col, sort = sort)
+                       }else{ # Single Answer col
+                         count_answers_single_col(data, !!col, sort = sort)
+                       }
+
+                     },
+                     "single" = {
+                       count_answers_single_col(data, !!col, sort = sort)
+                     },
+                     "multi" = {
+                       count_answers_multi_col(data, !!col, sort = sort)
+                     },
+                     "cloze" = {
+                       count_answers_cloze_col(data, !!col, count_cloze_parts = count_cloze_parts,
+                                               sort = sort)
+                     }
+  )
+  if(is.null(round_digits)) return(counted)
+
+  # Round Percent
+  counted %>%
+    dplyr::mutate(
+      dplyr::across(tidyselect::vars_select_helpers$where(is.numeric),
+                    ~round(.x, digits = round_digits))
+    )
+}
+
 # Count Single Answered MCQ -----------------------------------------------
 
 
