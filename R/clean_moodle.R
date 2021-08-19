@@ -43,9 +43,9 @@ clean_moodle <- function(data,
                   # Select Grade column (if any)
                   tidyselect::starts_with("G"),
                   # Select Response column (if any)
-                  tidyselect::starts_with("R"),
+                  tidyselect::starts_with("Response"),
                   # Select Q. column (if any)
-                  tidyselect::starts_with("Q")) %>%
+                  tidyselect::matches("Q\\.")) %>%
     tidyr::unite("First name", "Surname", col = "Name", sep = sep_name) %>%
     dplyr::rename(Email = "Email address", Started ="Started on")
 
