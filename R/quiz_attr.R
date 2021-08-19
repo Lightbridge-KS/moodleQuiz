@@ -126,7 +126,7 @@ get_max_resp <- function(df_resp, count_cloze_parts = F) {
 get_questions_no_max <- function(df_gr) {
 
   nm <- names(df_gr)
-  q_colnm <- stringr::str_subset(nm, "Q")
+  q_colnm <- stringr::str_subset(nm, "Q\\.")
   # Question No: Extract first set of digits before /
   q_number <- as.integer(stringr::str_extract(q_colnm, "[:digit:]+"))
   # Question Max: Extract everything after /
@@ -150,7 +150,7 @@ get_questions_no_max <- function(df_gr) {
 get_responses_no <- function(df_resp) {
 
   nm <- names(df_resp)
-  resp_colnm <- stringr::str_subset(nm, "R")
+  resp_colnm <- stringr::str_subset(nm, "Response")
   resp_no <-  stringr::str_extract(resp_colnm, "[:digit:]+")
   as.integer(resp_no)
 

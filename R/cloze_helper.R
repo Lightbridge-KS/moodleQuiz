@@ -75,7 +75,7 @@ get_noncloze_resp_colnm <- function(df) {
 
   regex <- "part [:digit:]+:"
   is_cloze_lgl <- df %>%
-    dplyr::select(tidyselect::starts_with("R")) %>%
+    dplyr::select(tidyselect::starts_with("Response")) %>%
     purrr::map(~stringr::str_detect(.x, regex)) %>%
     purrr::map_lgl(any)
 
