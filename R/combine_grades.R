@@ -255,11 +255,22 @@ filter_grades_moodle <- function(data_cleaned,
   # Get Grades Column name
   Grade_col <- stringr::str_subset(names(data_cleaned), "G") %>% rlang::sym()
 
+  # If "mean" compute mean score of each student (only finished attempts)
+  if (choose_grade == "mean") {
+    out <- data_cleaned %>%
+      dplyr::filter(State == "Finished") %>%
+      dplyr::group_by(Name, ID, State) %>%
+      dplyr::summarise(
+        dplyr::across(tidyselect::vars_select_helpers$where(is.numeric), ~ mean(.x, na.rm = T)), .groups = "keep"
+      ) %>%
+      dplyr::ungroup()
+
+    return(out)
+  }
   # Grouped filter by Score of each student
   filt_expr_1 <- switch (choose_grade,
                          "max" = { rlang::expr(!!Grade_col == max(!!Grade_col)) },
                          "min" = { rlang::expr(!!Grade_col == min(!!Grade_col))},
-                         "mean" = { rlang::expr(!!Grade_col == mean(!!Grade_col))},
                          "all" = { rlang::expr(!!Grade_col == !!Grade_col)},
                          stop("`choose_grade` must be one of 'max', 'min', 'mean', 'all'", call. = F)
   )
@@ -276,5 +287,6 @@ filter_grades_moodle <- function(data_cleaned,
     dplyr::filter(!!filt_expr_1) %>%
     dplyr::filter(!!filt_expr_2) %>%
     dplyr::ungroup()
+
 
 }
