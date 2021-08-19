@@ -3,7 +3,7 @@
 
 report_col_regex <- list(
   moodle = c("Surname", "First name", "Email address", "State"),
-  grades = c("Surname", "First name", "Email address", "State", "Grade", "Q"),
+  grades = c("Surname", "First name", "Email address", "State", "Grade", "Q\\."),
   responses = c("Surname", "First name", "Email address", "State", "Response")
 )
 
