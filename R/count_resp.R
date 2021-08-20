@@ -155,7 +155,7 @@ count_resp.data.frame <- function(data,
                             choose_encode = choose_encode, choose_time = choose_time
     ) %>%
     dplyr::mutate(
-      dplyr::across(tidyselect::starts_with("R"), ~dplyr::na_if(.x, "-"))
+      dplyr::across(tidyselect::starts_with("R"), ~as.character(dplyr::na_if(.x, "-")))
     )
 
   data_comb %>%
