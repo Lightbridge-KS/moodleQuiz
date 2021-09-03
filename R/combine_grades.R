@@ -12,6 +12,7 @@
 #' Like [check_sub()], this function also cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 #'
 #' @param data A data.frame **or** named list of data.frame of [Moodle Grades report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Responses report)
+#' @param extract_id_from (Character) Choose 1 column to extract ID from
 #' @param id_regex (Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -48,6 +49,8 @@
 #' @examples NULL
 combine_grades <- function(data,
                            # Clean
+                           extract_id_from = c("Email address",
+                                               "Institution", "Department"),
                            id_regex = ".*",
                            sep_name = " ", # Separate First name and Surname
                            # Adjust Grade
@@ -73,6 +76,8 @@ combine_grades <- function(data,
 #' @export
 combine_grades.list <- function(data,
                                 # Clean
+                                extract_id_from = c("Email address",
+                                                    "Institution", "Department"),
                                 id_regex = ".*",
                                 sep_name = " ", # Separate First name and Surname
                                 # Adjust Grade
@@ -110,6 +115,7 @@ combine_grades.list <- function(data,
   data_ls <- data %>%
     purrr::map2(.y = new_max_grade,
                 ~combine_grades.data.frame(.x,
+                                           extract_id_from = extract_id_from,
                                            id_regex = id_regex,
                                            sep_name = sep_name,
                                            new_max_grade = .y,
@@ -140,6 +146,8 @@ combine_grades.list <- function(data,
 #' @export
 combine_grades.data.frame <- function(data,
                                       # Clean
+                                      extract_id_from = c("Email address",
+                                                          "Institution", "Department"),
                                       id_regex = ".*",
                                       sep_name = " ", # Separate First name and Surname
                                       # Adjust Grade
@@ -162,6 +170,7 @@ combine_grades.data.frame <- function(data,
   # Clean
   data %>%
     clean_moodle(id_regex = id_regex,
+                 extract_id_from = extract_id_from,
                  sep_name = sep_name, force_numeric = TRUE) %>%
     # Adjust Grade
     adj_grades_moodle(new_max_grade = new_max_grade,
@@ -170,7 +179,6 @@ combine_grades.data.frame <- function(data,
     filter_grades_moodle(choose_grade = choose_grade, choose_time = choose_time)
 
 }
-
 
 # Helper: Adjuste Grade ---------------------------------------------------
 

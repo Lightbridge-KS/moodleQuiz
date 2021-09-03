@@ -10,6 +10,7 @@
 #' cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 #'
 #' @param data A data.frame **or** named list of data.frame of [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report)
+#' @param extract_id_from (Character) Choose 1 column to extract ID from
 #' @param id_regex (Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -41,6 +42,8 @@
 #' @examples NULL
 combine_resp <- function(data,
                          # Clean
+                         extract_id_from = c("Email address",
+                                             "Institution", "Department"),
                          id_regex = ".*", # Extract ID from Email
                          sep_name = " ", # Separate First name and Surname
                          # Encode
@@ -51,20 +54,21 @@ combine_resp <- function(data,
                          # Split cloze
                          split_cloze = F,
                          part_glue = "_part_",
-                         # Extra for list method
-                         sep_col = "_" # Separation for State and Response column names
+                         #... # passed to sep_col arg
+                         sep_col = "_p_"
 ) {
 
   UseMethod("combine_resp")
+
 }
-
-
 # List method -------------------------------------------------------------
 
 
 #' @export
 combine_resp.list <- function(data,
                               # Clean
+                              extract_id_from = c("Email address",
+                                                  "Institution", "Department"),
                               id_regex = ".*", # Extract ID from Email
                               sep_name = " ", # Separate First name and Surname
                               # Encode
@@ -85,6 +89,7 @@ combine_resp.list <- function(data,
   data %>%
     purrr::map(~combine_resp.data.frame(.x,
                                         # Clean
+                                        extract_id_from = extract_id_from,
                                         id_regex = id_regex, # Extract ID from Email
                                         sep_name = sep_name, # Separate First name and Surname
                                         # Encode
@@ -114,6 +119,8 @@ combine_resp.list <- function(data,
 #' @export
 combine_resp.data.frame <- function(data,
                                     # Clean
+                                    extract_id_from = c("Email address",
+                                                        "Institution", "Department"),
                                     id_regex = ".*", # Extract ID from Email
                                     sep_name = " ", # Separate First name and Surname
                                     # Encode
@@ -124,13 +131,14 @@ combine_resp.data.frame <- function(data,
                                     # Split cloze
                                     split_cloze = F,
                                     part_glue = "_part_",
-                                    ... # to absorb sep_col argument
+                                    ...
 ) {
 
   if(!is_responses_report(data)) stop("`data` is not a Moodle Responses report.", call. = F)
 
   data_enc <- data %>%
     clean_moodle(id_regex = id_regex, sep_name = sep_name,
+                 extract_id_from = extract_id_from,
                  force_numeric = FALSE, dash_na = FALSE) %>%
     encode_moodle(state = state, encode = encode,
                   choose_encode = choose_encode,

@@ -6,17 +6,20 @@
 \usage{
 check_sub(
   data,
+  extract_id_from = c("Email address", "Institution", "Department"),
   id_regex = ".*",
   sep_name = " ",
   state = c("Finished", "In progress"),
   encode = c(1, 0),
   choose_encode = c("max", "min", "all"),
   choose_time = c("first", "last", "all"),
-  sep_col = "_"
+  ...
 )
 }
 \arguments{
 \item{data}{A data.frame \strong{or} named list of data.frame of \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Quiz report(s)} (i.e. either Grades or Responses report).}
+
+\item{extract_id_from}{(Character) Choose 1 column to extract ID from}
 
 \item{id_regex}{(Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "\verb{.*}" meaning all characters.
 If your student email addresses has numeric IDs in them, try "\verb{[:digit:]+}" to extract digits from the email.

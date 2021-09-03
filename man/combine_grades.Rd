@@ -6,6 +6,7 @@
 \usage{
 combine_grades(
   data,
+  extract_id_from = c("Email address", "Institution", "Department"),
   id_regex = ".*",
   sep_name = " ",
   new_max_grade = NULL,
@@ -18,6 +19,8 @@ combine_grades(
 }
 \arguments{
 \item{data}{A data.frame \strong{or} named list of data.frame of \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Grades report(s)} (not Responses report)}
+
+\item{extract_id_from}{(Character) Choose 1 column to extract ID from}
 
 \item{id_regex}{(Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "\verb{.*}" meaning all characters.
 If your student email addresses has numeric IDs in them, try "\verb{[:digit:]+}" to extract digits from the email.

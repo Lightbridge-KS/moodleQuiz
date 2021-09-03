@@ -12,6 +12,7 @@
 #' cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 #'
 #' @param data A data.frame **or** named list of data.frame of [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports) (not Grades report)
+#' @param extract_id_from (Character) Choose 1 column to extract ID from
 #' @param id_regex (Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -49,6 +50,8 @@
 #' @examples NULL
 count_resp <- function(data,
                        # Clean
+                       extract_id_from = c("Email address",
+                                           "Institution", "Department"),
                        id_regex = ".*", # Extract ID from Email
                        sep_name = " ", # Separate First name and Surname
                        # Encode
@@ -72,6 +75,8 @@ count_resp <- function(data,
 #' @export
 count_resp.list <- function(data,
                             # Clean
+                            extract_id_from = c("Email address",
+                                                "Institution", "Department"),
                             id_regex = ".*", # Extract ID from Email
                             sep_name = " ", # Separate First name and Surname
                             # Encode
@@ -100,6 +105,7 @@ count_resp.list <- function(data,
     purrr::map(
       ~count_resp.data.frame(.x,
                              id_regex = id_regex,
+                             extract_id_from = extract_id_from,
                              sep_name = sep_name,
                              state = state, encode = encode,
                              choose_encode = choose_encode,
@@ -129,6 +135,8 @@ count_resp.list <- function(data,
 #' @export
 count_resp.data.frame <- function(data,
                                   # Clean
+                                  extract_id_from = c("Email address",
+                                                      "Institution", "Department"),
                                   id_regex = ".*", # Extract ID from Email
                                   sep_name = " ", # Separate First name and Surname
                                   # Encode
@@ -150,6 +158,7 @@ count_resp.data.frame <- function(data,
   data_comb <- data %>%
     ### Passed to Combine Responses DF
     combine_resp.data.frame(split_cloze = count_cloze_parts,
+                            extract_id_from = extract_id_from,
                             id_regex = id_regex, sep_name = sep_name,
                             state = state, encode = encode,
                             choose_encode = choose_encode, choose_time = choose_time
@@ -168,5 +177,3 @@ count_resp.data.frame <- function(data,
 
 
 }
-
-

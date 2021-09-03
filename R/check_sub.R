@@ -10,6 +10,7 @@
 #' and unites "First name" and "Surname" column into "Name".
 #'
 #' @param data A data.frame **or** named list of data.frame of [Moodle Quiz report(s)](https://docs.moodle.org/311/en/Quiz_reports) (i.e. either Grades or Responses report).
+#' @param extract_id_from (Character) Choose 1 column to extract ID from
 #' @param id_regex (Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -36,6 +37,8 @@
 #' @examples NULL
 #' @export
 check_sub <- function(data,
+                      extract_id_from = c("Email address",
+                                          "Institution", "Department"),
                       id_regex = ".*", # Extract ID from Email
                       sep_name = " ", # Separate First name and Surname
                       state = c("Finished", "In progress"),
@@ -44,28 +47,28 @@ check_sub <- function(data,
                       # encode argument `state` to
                       choose_encode = c("max", "min", "all"),
                       choose_time = c("first", "last", "all"),
-                      sep_col = "_"
+                      ... # passed to `sep_col`
 ) {
 
   UseMethod("check_sub")
 
 }
 
-
 # List Method -------------------------------------------------------------
 
 
 #' @export
 check_sub.list <- function(data,
+                           extract_id_from = c("Email address",
+                                               "Institution", "Department"),
                            id_regex = ".*", # Extract ID from Email
                            sep_name = " ", # Separate First name and Surname
+                           sep_col = "_", # Separation of State and Encode column names
                            # Encode
                            state = c("Finished", "In progress"),
                            encode = c(1,0),
                            choose_encode = c("max", "min", "all"),
-                           choose_time = c("first", "last", "all"),
-                           sep_col = "_" # Separation of State and Encode column names
-
+                           choose_time = c("first", "last", "all")
 ) {
 
   if(!is_named_list_data.frame(data)) stop("`data` must be named list of data.frame", call. = F)
@@ -76,6 +79,7 @@ check_sub.list <- function(data,
 
   data_ls <- data %>%
     purrr::map(~check_sub.data.frame(.x,
+                                     extract_id_from = extract_id_from,
                                      id_regex = id_regex,
                                      sep_name = sep_name,
                                      state = state,
@@ -108,20 +112,23 @@ check_sub.list <- function(data,
 #' @export
 check_sub.data.frame <- function(data,
                                  # Clean
+                                 extract_id_from = c("Email address",
+                                                     "Institution", "Department"),
                                  id_regex = ".*", # Extract ID from Email
                                  sep_name = " ", # Separate First name and Surname
                                  # Encode
                                  state = c("Finished", "In progress"),
                                  encode = c(1,0),
                                  choose_encode = c("max", "min", "all"),
-                                 choose_time = c("first", "last", "all"),
-                                 ... # To absorb sep_col argument from generic
+                                 choose_time = c("first", "last", "all")
 ) {
 
   if(!is_report(data)) stop("`data` is not a moodle quiz report", call. = F)
 
   data %>%
-    clean_moodle(extract_id = TRUE, id_regex = id_regex, sep_name = sep_name,
+    clean_moodle(extract_id = TRUE,
+                 extract_id_from = extract_id_from,
+                 id_regex = id_regex, sep_name = sep_name,
                  dash_na = FALSE, force_numeric = FALSE) %>%
     encode_moodle(state = state,
                   encode = encode,
@@ -129,3 +136,4 @@ check_sub.data.frame <- function(data,
                   choose_time = choose_time)
 
 }
+

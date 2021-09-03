@@ -6,6 +6,7 @@
 \usage{
 combine_resp(
   data,
+  extract_id_from = c("Email address", "Institution", "Department"),
   id_regex = ".*",
   sep_name = " ",
   state = c("Finished", "In progress"),
@@ -14,11 +15,13 @@ combine_resp(
   choose_time = c("first", "last", "all"),
   split_cloze = F,
   part_glue = "_part_",
-  sep_col = "_"
+  sep_col = "_p_"
 )
 }
 \arguments{
 \item{data}{A data.frame \strong{or} named list of data.frame of \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Responses report(s)} (not Grades report)}
+
+\item{extract_id_from}{(Character) Choose 1 column to extract ID from}
 
 \item{id_regex}{(Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "\verb{.*}" meaning all characters.
 If your student email addresses has numeric IDs in them, try "\verb{[:digit:]+}" to extract digits from the email.
