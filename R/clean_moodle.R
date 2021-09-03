@@ -8,6 +8,7 @@
 #' @param data A data.frame of [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports).
 #' @param extract_id (Logical) `TRUE`: An "ID" column will be created by extracting characters from "Email address" column
 #'   using regular expression as `id_regex`. If `FALSE`: "Email address" column will be renamed to "Email".
+#' @param extract_id_from (Character) Choose column to extract ID from
 #' @param id_regex (Character) Regular expression used to extract ID from "Email address". The default is ".*" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -23,11 +24,16 @@
 #'
 #' @examples
 clean_moodle <- function(data,
-                         extract_id = TRUE, id_regex = ".*", # Extract ID from Email
+                         extract_id = TRUE,
+                         extract_id_from = c("Email address",
+                                             "Institution", "Department"),
+                         id_regex = ".*", # Extract ID regex
                          sep_name = " ", # Separate First name and Surname
                          dash_na = TRUE, # Format Dash "-" to NA
                          force_numeric = TRUE # Force format Grade and Q column to numeric
 ) {
+
+  extract_id_from <- match.arg(extract_id_from)
 
   if(!is_report(data)) stop("This is not a moodle quiz report.", call. = F)
 
@@ -38,7 +44,8 @@ clean_moodle <- function(data,
     # Filter out "Overall average" in the last row of Grade report
     dplyr::filter(!is.na(`Email address`)) %>%
     # Select Column that use in all type of Moodler Function
-    dplyr::select(tidyselect::all_of(c("First name", "Surname",
+    dplyr::select(tidyselect::any_of(c("First name", "Surname",
+                                       "Institution", "Department",
                                        "Email address", "State", "Started on")),
                   # Select Grade column (if any)
                   tidyselect::starts_with("G"),
@@ -58,7 +65,7 @@ clean_moodle <- function(data,
     # Reformat Stated Date to POSIXct
     dplyr::mutate(Started = lubridate::dmy_hm(Started)) %>%
     # Replace "/" at Grade/xx column
-    dplyr::rename_with(.fn = ~stringr::str_replace(.x, "/", "_"))
+    dplyr::rename_with(.fn = ~str_replace(.x, "/", "_"))
 
   # Format Grade column to numeric; Even if it's "Not yet graded" or dashed
   if(force_numeric){
@@ -100,8 +107,14 @@ clean_moodle <- function(data,
 
   if(!extract_id) return(df_cleaned_2)
   # Extract Numeric ID from Email
+  id_col_expr <- switch (extract_id_from,
+                         "Email address" = { dplyr::expr(Email) },
+                         "Institution" = { dplyr::expr(Institution) },
+                         "Department" = { dplyr::expr(Department) }
+  )
+
   df_cleaned_2 %>%
-    dplyr::mutate(ID = as.character(stringr::str_extract(Email, id_regex)),
+    dplyr::mutate(ID = as.character(stringr::str_extract(!!id_col_expr, id_regex)),
                   .keep = "unused", .after = Name)
 
 }
