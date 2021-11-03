@@ -52,6 +52,7 @@ get_cloze_col_names <- function(df) {
 
   regex <- "part [:digit:]+:"
   is_cloze_lgl <- df %>%
+    dplyr::select(tidyselect::starts_with("Response")) %>%
     purrr::map(~stringr::str_detect(.x, regex)) %>%
     purrr::map_lgl(any)
 
