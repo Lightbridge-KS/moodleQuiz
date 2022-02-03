@@ -32,6 +32,9 @@
 #'   * \strong{"all"}: no filter applied, return all rows after applying `choose_encode`
 #' @param count_cloze_parts (Logical) If a Moodle Responses report has at least one response column(s) that contained [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type),
 #'   set `count_cloze_parts = TRUE` will count individual parts of each Cloze columns. If `FALSE`, then it will count each Cloze column as 1 count.
+#' @param filter_count (Character) One of "max" or "all". This filter option will apply after filter by `choose_encode` and `choose_time`.
+#'   * \strong{"max"}: filter rows that has maximum response count per student. If there are ≥ 1 rows, filter the first one based on `Started`.
+#'   * \strong{"all"}: No further filter apply.
 #' @param sep_col (Character) If `data` is a named list of data.frame, `sep_col` indicate a character separation between names of list and "State" or "Count_resp" columns.
 #'
 #'
@@ -61,13 +64,13 @@ count_resp <- function(data,
                        choose_time = c("first", "last", "all"),
                        # TRUE = count individual parts of cloze responses
                        count_cloze_parts = F,
+                       filter_count = c("max", "all"),
                        sep_col = "_" # To List method: `sep_col`
 ) {
 
   UseMethod("count_resp")
 
 }
-
 
 
 # List method -------------------------------------------------------------
@@ -86,6 +89,7 @@ count_resp.list <- function(data,
                             choose_time = c("first", "last", "all"),
                             # TRUE = count individual parts of cloze responses
                             count_cloze_parts = F,
+                            filter_count = c("max", "all"),
                             sep_col = "_"
 ) {
   # Validate Responses report
@@ -110,7 +114,8 @@ count_resp.list <- function(data,
                              state = state, encode = encode,
                              choose_encode = choose_encode,
                              choose_time = choose_time,
-                             count_cloze_parts = count_cloze_parts)
+                             count_cloze_parts = count_cloze_parts,
+                             filter_count = filter_count)
     ) %>%
     purrr::map(~dplyr::select(.x, Name, ID, State, tidyselect::starts_with("C"))) %>%
     # Prefix "State" and "Count" column name
@@ -146,14 +151,19 @@ count_resp.data.frame <- function(data,
                                   choose_time = c("first", "last", "all"),
                                   # TRUE = count individual parts of cloze responses
                                   count_cloze_parts = F,
+                                  filter_count = c("max", "all"),
                                   ...
 ) {
+
+  filter_count <- match.arg(filter_count)
 
   if(!is_responses_report(data)) stop("`data` is not a Moodle Responses report.", call. = F)
 
   if(count_cloze_parts && !has_cloze_col(data)) stop("This Moodle Responses report has no Cloze column to count", call. = F)
 
   tot_len <- get_max_resp(data, count_cloze_parts = count_cloze_parts)
+  ### Count Resp Colum Name
+  count_resp_colnm <- rlang::sym(paste0("Count_Resp_", tot_len))
 
   data_comb <- data %>%
     ### Passed to Combine Responses DF
@@ -167,13 +177,25 @@ count_resp.data.frame <- function(data,
       dplyr::across(tidyselect::starts_with("R"), ~as.character(dplyr::na_if(.x, "-")))
     )
 
-  data_comb %>%
+  data_counted <- data_comb %>%
     dplyr::rowwise() %>%
     dplyr::mutate(
-      "Count_Resp_{tot_len}" := sum(!is.na(dplyr::c_across(tidyselect::starts_with("R"))))
+      !!count_resp_colnm := sum(!is.na(dplyr::c_across(tidyselect::starts_with("R"))))
     ) %>%
     dplyr::ungroup() %>%
     dplyr::select(!tidyselect::starts_with("R"))
 
+  ## NOT filter max count
+  if(filter_count == "all") return(data_counted)
+  ## Filter Maximum Count
+  if(filter_count == "max"){
+    data_counted %>%
+      dplyr::group_by(Name, ID) %>%
+      # Choose Max Count per Student Name, ID
+      dplyr::filter(!!count_resp_colnm == max(!!count_resp_colnm)) %>%
+      ## If more than 1 max count, choose the first one
+      dplyr::filter(Started == min(Started)) %>%
+      dplyr::ungroup()
+  }
 
 }

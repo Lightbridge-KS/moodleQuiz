@@ -14,6 +14,7 @@ count_resp(
   choose_encode = c("max", "min", "all"),
   choose_time = c("first", "last", "all"),
   count_cloze_parts = F,
+  filter_count = c("max", "all"),
   sep_col = "_"
 )
 }
@@ -51,6 +52,12 @@ This filter applies \strong{after} \code{choose_encode} has been applied to the 
 
 \item{count_cloze_parts}{(Logical) If a Moodle Responses report has at least one response column(s) that contained \href{https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type}{embedded answers (Cloze)},
 set \code{count_cloze_parts = TRUE} will count individual parts of each Cloze columns. If \code{FALSE}, then it will count each Cloze column as 1 count.}
+
+\item{filter_count}{(Character) One of "max" or "all". This filter option will apply after filter by \code{choose_encode} and \code{choose_time}.
+\itemize{
+\item \strong{"max"}: filter rows that has maximum response count per student. If there are ≥ 1 rows, filter the first one based on \code{Started}.
+\item \strong{"all"}: No further filter apply.
+}}
 
 \item{sep_col}{(Character) If \code{data} is a named list of data.frame, \code{sep_col} indicate a character separation between names of list and "State" or "Count_resp" columns.}
 }
