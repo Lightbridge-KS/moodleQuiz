@@ -6,8 +6,7 @@
 \alias{moodleQuiz-package}
 \title{moodleQuiz: High-level functions for Wrangling, Combine, and Analyse Moodle Quiz Report}
 \description{
-This package provides high-level ready to use function that performs data wrangling,  
-    aggregration, and analysis on Moodle Quiz Report (i.e., Grades Report and Responses Report).
+This package provides high-level ready to use function that performs data wrangling, aggregration, and analysis on Moodle Quiz Report (i.e., Grades Report and Responses Report).
 }
 \seealso{
 Useful links:
