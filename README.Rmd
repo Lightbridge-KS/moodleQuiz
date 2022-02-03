@@ -27,7 +27,7 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Lightbridge-AI/moodleQuiz")
+devtools::install_github("Lightbridge-KS/moodleQuiz")
 ```
 
 ## Combine Student Grades
@@ -52,5 +52,5 @@ purrr::map(grades_ls, class)
 Then, you can combine multiple Grades report to a single data frame with: `combine_grades()`
 
 ```{r example}
-combine_grades(grades_ls)
+moodleQuiz::combine_grades(grades_ls)
 ```

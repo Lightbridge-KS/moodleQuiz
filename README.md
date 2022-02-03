@@ -18,7 +18,7 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Lightbridge-AI/moodleQuiz")
+devtools::install_github("Lightbridge-KS/moodleQuiz")
 ```
 
 ## Combine Student Grades
@@ -82,8 +82,8 @@ Then, you can combine multiple Grades report to a single data frame
 with: `combine_grades()`
 
 ``` r
-combine_grades(grades_ls)
-#> # A tibble: 26 x 9
+moodleQuiz::combine_grades(grades_ls)
+#> # A tibble: 26 × 9
 #>    Name       ID       Quiz_1_State Quiz_1_Grade_10 Quiz_2_State Quiz_2_Grade_10
 #>    <chr>      <chr>    <chr>                  <dbl> <chr>                  <dbl>
 #>  1 Jada Roqu… u017@ex… Finished                9.47 Finished                7.77
