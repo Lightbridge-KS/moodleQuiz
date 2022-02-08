@@ -195,7 +195,11 @@ count_resp.data.frame <- function(data,
       dplyr::filter(!!count_resp_colnm == max(!!count_resp_colnm)) %>%
       ## If more than 1 max count, choose the first one
       dplyr::filter(Started == min(Started)) %>%
+      ## If started at the same time, choose the first row
+      dplyr::filter(dplyr::row_number() == 1) %>%
       dplyr::ungroup()
   }
 
 }
+
+
