@@ -8,7 +8,7 @@
 #' @param data A data.frame of [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports).
 #' @param extract_id (Logical) `TRUE`: An "ID" column will be created by extracting characters from "Email address" column
 #'   using regular expression as `id_regex`. If `FALSE`: "Email address" column will be renamed to "Email".
-#' @param extract_id_from (Character) Choose column to extract ID from
+#' @param extract_id_from (Character) Choose column to extract ID from one of: "Email address", "Institution", "Department", and "ID number" (a custom one).
 #' @param id_regex (Character) Regular expression used to extract ID from "Email address". The default is ".*" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
@@ -26,7 +26,9 @@
 clean_moodle <- function(data,
                          extract_id = TRUE,
                          extract_id_from = c("Email address",
-                                             "Institution", "Department"),
+                                             "Institution",
+                                             "Department",
+                                             "ID number"),
                          id_regex = ".*", # Extract ID regex
                          sep_name = " ", # Separate First name and Surname
                          dash_na = TRUE, # Format Dash "-" to NA
@@ -45,6 +47,7 @@ clean_moodle <- function(data,
     dplyr::filter(!is.na(`Email address`)) %>%
     # Select Column that use in all type of Moodler Function
     dplyr::select(tidyselect::any_of(c("First name", "Surname",
+                                       "ID number", # Custom column
                                        "Institution", "Department",
                                        "Email address", "State", "Started on")),
                   # Select Grade column (if any)
@@ -110,7 +113,8 @@ clean_moodle <- function(data,
   id_col_expr <- switch (extract_id_from,
                          "Email address" = { dplyr::expr(Email) },
                          "Institution" = { dplyr::expr(Institution) },
-                         "Department" = { dplyr::expr(Department) }
+                         "Department" = { dplyr::expr(Department) },
+                         "ID number" = { dplyr::expr(`ID number`)}
   )
 
   df_cleaned_2 %>%

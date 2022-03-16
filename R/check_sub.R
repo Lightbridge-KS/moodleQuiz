@@ -11,7 +11,7 @@
 #'
 #' @param data A data.frame **or** named list of data.frame of [Moodle Quiz report(s)](https://docs.moodle.org/311/en/Quiz_reports) (i.e. either Grades or Responses report).
 #' @param extract_id_from (Character) Choose 1 column to extract ID from
-#' @param id_regex (Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
+#' @param id_regex (Character) A regular expression used to extract ID from column (choose one) "Email address", "Institution", "Department", or "ID number" in the Moodle Quiz report. The default is "`.*`" meaning all characters.
 #'   If your student email addresses has numeric IDs in them, try "`[:digit:]+`" to extract digits from the email.
 #'   **Note**: Regular expression syntax is the same as [stringr](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
 #' @param sep_name A character in the new "Name" column that separate original "First name" and "Surname".
@@ -38,7 +38,7 @@
 #' @export
 check_sub <- function(data,
                       extract_id_from = c("Email address",
-                                          "Institution", "Department"),
+                                          "Institution", "Department", "ID number"),
                       id_regex = ".*", # Extract ID from Email
                       sep_name = " ", # Separate First name and Surname
                       state = c("Finished", "In progress"),
@@ -60,7 +60,7 @@ check_sub <- function(data,
 #' @export
 check_sub.list <- function(data,
                            extract_id_from = c("Email address",
-                                               "Institution", "Department"),
+                                               "Institution", "Department", "ID number"),
                            id_regex = ".*", # Extract ID from Email
                            sep_name = " ", # Separate First name and Surname
                            sep_col = "_", # Separation of State and Encode column names
@@ -113,7 +113,7 @@ check_sub.list <- function(data,
 check_sub.data.frame <- function(data,
                                  # Clean
                                  extract_id_from = c("Email address",
-                                                     "Institution", "Department"),
+                                                     "Institution", "Department", "ID number"),
                                  id_regex = ".*", # Extract ID from Email
                                  sep_name = " ", # Separate First name and Surname
                                  # Encode

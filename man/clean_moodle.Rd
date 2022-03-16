@@ -7,7 +7,7 @@
 clean_moodle(
   data,
   extract_id = TRUE,
-  extract_id_from = c("Email address", "Institution", "Department"),
+  extract_id_from = c("Email address", "Institution", "Department", "ID number"),
   id_regex = ".*",
   sep_name = " ",
   dash_na = TRUE,
@@ -20,7 +20,7 @@ clean_moodle(
 \item{extract_id}{(Logical) \code{TRUE}: An "ID" column will be created by extracting characters from "Email address" column
 using regular expression as \code{id_regex}. If \code{FALSE}: "Email address" column will be renamed to "Email".}
 
-\item{extract_id_from}{(Character) Choose column to extract ID from}
+\item{extract_id_from}{(Character) Choose column to extract ID from one of: "Email address", "Institution", "Department", and "ID number" (a custom one).}
 
 \item{id_regex}{(Character) Regular expression used to extract ID from "Email address". The default is ".*" meaning all characters.
 If your student email addresses has numeric IDs in them, try "\verb{[:digit:]+}" to extract digits from the email.

@@ -6,7 +6,7 @@
 \usage{
 combine_grades(
   data,
-  extract_id_from = c("Email address", "Institution", "Department"),
+  extract_id_from = c("Email address", "Institution", "Department", "ID number"),
   id_regex = ".*",
   sep_name = " ",
   new_max_grade = NULL,
