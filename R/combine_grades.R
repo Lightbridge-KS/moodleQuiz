@@ -50,7 +50,7 @@
 combine_grades <- function(data,
                            # Clean
                            extract_id_from = c("Email address",
-                                               "Institution", "Department"),
+                                               "Institution", "Department", "ID number"),
                            id_regex = ".*",
                            sep_name = " ", # Separate First name and Surname
                            # Adjust Grade
@@ -77,7 +77,7 @@ combine_grades <- function(data,
 combine_grades.list <- function(data,
                                 # Clean
                                 extract_id_from = c("Email address",
-                                                    "Institution", "Department"),
+                                                    "Institution", "Department", "ID number"),
                                 id_regex = ".*",
                                 sep_name = " ", # Separate First name and Surname
                                 # Adjust Grade
@@ -147,7 +147,7 @@ combine_grades.list <- function(data,
 combine_grades.data.frame <- function(data,
                                       # Clean
                                       extract_id_from = c("Email address",
-                                                          "Institution", "Department"),
+                                                          "Institution", "Department", "ID number"),
                                       id_regex = ".*",
                                       sep_name = " ", # Separate First name and Surname
                                       # Adjust Grade

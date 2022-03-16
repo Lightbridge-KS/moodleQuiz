@@ -6,7 +6,7 @@
 \usage{
 check_sub(
   data,
-  extract_id_from = c("Email address", "Institution", "Department"),
+  extract_id_from = c("Email address", "Institution", "Department", "ID number"),
   id_regex = ".*",
   sep_name = " ",
   state = c("Finished", "In progress"),
@@ -21,7 +21,7 @@ check_sub(
 
 \item{extract_id_from}{(Character) Choose 1 column to extract ID from}
 
-\item{id_regex}{(Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "\verb{.*}" meaning all characters.
+\item{id_regex}{(Character) A regular expression used to extract ID from column (choose one) "Email address", "Institution", "Department", or "ID number" in the Moodle Quiz report. The default is "\verb{.*}" meaning all characters.
 If your student email addresses has numeric IDs in them, try "\verb{[:digit:]+}" to extract digits from the email.
 \strong{Note}: Regular expression syntax is the same as \href{https://github.com/rstudio/cheatsheets/blob/master/strings.pdf}{stringr}.}
 
