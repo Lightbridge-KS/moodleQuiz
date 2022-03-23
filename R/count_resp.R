@@ -126,7 +126,7 @@ count_resp.list <- function(data,
     dplyr::rowwise() %>%
     dplyr::mutate(
       "Total_{tot_resp_count}":= sum(dplyr::c_across(
-        tidyselect::vars_select_helpers$where(is.numeric))
+        tidyselect::vars_select_helpers$where(is.numeric)), na.rm = TRUE
       )
     ) %>%
     dplyr::ungroup()
