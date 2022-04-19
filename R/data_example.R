@@ -18,3 +18,23 @@
 #' * \strong{"Grade/x"}: Student's score with "x" to indicate quiz maximum
 #' * \strong{"Q. n /x"}: Score of each questions; "n" indicate question number, "x" indicate maximum of each questions.
 "grades_ls"
+
+#' Moodle Responses Report Example
+#'
+#' Example for [Moodle Responses report](https://docs.moodle.org/311/en/Quiz_reports).
+#' This data is entirely simulated. The texts in `Response x` columns were randomly selected from "The Return of Tarzan" by Burroughs, Edgar Rice.
+#'
+#'
+#' @format A named list of 2 data.frame each has the following columns:
+#' * \strong{"Surname"}: surname of students (not real)
+#' * \strong{"First name"}: first name of students (not real)
+#' * \strong{"Institution"}: `NA`s
+#' * \strong{"Department"}: `NA`s
+#' * \strong{"Email address"}: Student's email address that has numeric student ID in it.
+#' * \strong{"State"}: State of the quiz
+#' * \strong{"Started on"}: Quiz start time
+#' * \strong{"Time taken"}: Elapsed time
+#' * \strong{"Completed"}: Quiz end time
+#' * \strong{"Grade/x"}: Student's score with "x" to indicate quiz maximum
+#' * \strong{"Response x"}: Essay responses of each student
+"responses_ls"
