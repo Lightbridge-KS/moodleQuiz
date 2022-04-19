@@ -48,7 +48,7 @@ This filter applies \strong{after} \code{choose_encode} has been applied to the 
 \item \strong{"all"}: no filter applied, return all rows after applying \code{choose_encode}
 }}
 
-\item{sep_col}{(Character) If \code{data} is a named list of data.frame, \code{sep_col} indicate a character separation between names of list and "state" or "encode" columns.}
+\item{...}{argument \code{sep_col} of \code{check_sub.list()}, which indicates a character separation between names of list and "state" or "encode" columns.}
 }
 \value{
 \strong{A data.frame}, its output content is determined by class of its first argument: \code{data}.
