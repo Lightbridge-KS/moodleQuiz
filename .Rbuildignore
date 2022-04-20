@@ -5,3 +5,4 @@
 ^README\.Rmd$
 my_develop
 my_data
+^\.github$
