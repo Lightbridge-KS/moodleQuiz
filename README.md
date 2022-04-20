@@ -8,6 +8,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/Lightbridge-AI/moodleQuiz/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Lightbridge-AI/moodleQuiz?branch=main)
 <!-- badges: end -->
 
 The goal of the `moodleQuiz` package is to perform data wrangling,
