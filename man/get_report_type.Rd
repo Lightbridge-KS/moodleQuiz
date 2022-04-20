@@ -12,6 +12,7 @@ get_report_type(data)
 \value{
 Character vector: \code{"Grades"} for Moodle Grades Report, \code{Responses}  for Moodle Responses Report,
 or \code{NA} if it's not a Moodle Quiz report
+@noRd
 }
 \description{
 Get Type of Moodle Quiz Report
