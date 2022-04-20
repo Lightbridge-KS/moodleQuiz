@@ -16,7 +16,8 @@ knitr::opts_chunk$set(
 # moodleQuiz
 
 <!-- badges: start -->
-
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of the `moodleQuiz` package is to perform data wrangling, merging and analyse [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports) with simple ready-to-use functions.
@@ -26,31 +27,11 @@ The goal of the `moodleQuiz` package is to perform data wrangling, merging and a
 You can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Lightbridge-KS/moodleQuiz")
+# install.packages("remotes")
+remotes::install_github("Lightbridge-KS/moodleQuiz")
 ```
 
-## Combine Student Grades
+## Examples
 
-This is an example of Moodle Grades report:
+To be continued...
 
-```{r grades_rep ex}
-library(moodleQuiz)
-data("grades_ls")
-
-head(grades_ls$Quiz_1)
-```
-
-Suppose that you have multiple reports, you can combine them in to a list of data frame
-
-```{r grades_ls}
-# the example data "grades_ls" is a named list of data frame.
-class(grades_ls)
-purrr::map(grades_ls, class)
-```
-
-Then, you can combine multiple Grades report to a single data frame with: `combine_grades()`
-
-```{r example}
-moodleQuiz::combine_grades(grades_ls)
-```
