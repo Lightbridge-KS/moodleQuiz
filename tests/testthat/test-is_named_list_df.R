@@ -1,4 +1,3 @@
-context("is_named_list_data.frame")
 
 test_that("is_named_list_data.frame output is correct",{
 
