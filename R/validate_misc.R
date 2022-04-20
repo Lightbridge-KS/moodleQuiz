@@ -10,7 +10,7 @@
 #' @param col (tidy-select) Column to test
 #'
 #' @return Named logical vector: `TRUE` if a column is a multiple answered MCQ
-#'
+#' @noRd
 is_multi_resp_col <- function(data, col) {
 
   col <- rlang::enquo(col)

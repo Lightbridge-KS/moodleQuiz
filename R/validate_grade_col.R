@@ -5,7 +5,7 @@
 #' @param data A data.frame to test.
 #'
 #' @return Logical: `TRUE` if numeric grade is presented.
-#'
+#' @noRd
 is_some_grade_numeric <- function(data){
 
   data %>%
@@ -26,7 +26,7 @@ is_some_grade_numeric <- function(data){
 #' @param data A data.frame to test.
 #'
 #' @return Logical: `TRUE` if "Not yet graded" is presented.
-#'
+#' @noRd
 is_some_grade_nyg <- function(data){
 
   data %>%

@@ -8,7 +8,7 @@
 #' @param verbose If `TRUE`, message you that in which components of the object names is/are not match by `regex`
 #'
 #' @return Logical, if `TRUE` all of the `regex` can be matched to at least one element of names of `x`.
-#'
+#' @noRd
 is_regex_in_names <- function(x, regex, verbose = F){
 
   nm <- names(x)
@@ -35,7 +35,7 @@ is_regex_in_names <- function(x, regex, verbose = F){
 #' @param na.rm Logical, Passed to `match_rows`
 #'
 #' @return Named logical vector
-#'
+#' @noRd
 is_regex_in_cols <- function(data,
                              cols = tidyselect::everything(),
                              regex,
@@ -68,7 +68,7 @@ is_regex_in_cols <- function(data,
 #' @param appendLF Arg of `message()`
 #'
 #' @return Messages
-#'
+#' @noRd
 print_msg <- function(x, ... , sep = "\n", domain = NULL, appendLF = TRUE){
 
   x_comb <- purrr::reduce(x, paste, sep = sep)

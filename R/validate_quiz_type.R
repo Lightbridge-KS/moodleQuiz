@@ -4,6 +4,7 @@
 #'
 #' @return Character vector: `"Grades"` for Moodle Grades Report, `Responses`  for Moodle Responses Report,
 #'  or `NA` if it's not a Moodle Quiz report
+#'  @noRd
 #'
 get_report_type <- function(data) {
 
@@ -26,7 +27,7 @@ get_report_type <- function(data) {
 #' @param data A data.frame to test.
 #'
 #' @return logical: `TRUE` if it is a Moodle Quiz Report
-#'
+#' @noRd
 is_report <- function(data) {
 
   if(!is.data.frame(data)) stop("`data` must be a data.frame", call. = F)
@@ -39,7 +40,7 @@ is_report <- function(data) {
 #' @param data A data.frame to test.
 #'
 #' @return logical: `TRUE` if it is a Moodle Grades Report
-#'
+#' @noRd
 is_grades_report <- function(data) {
 
   if(!is.data.frame(data)) stop("`data` must be a data.frame", call. = F)
@@ -53,7 +54,7 @@ is_grades_report <- function(data) {
 #' @param data A data.frame to test.
 #'
 #' @return logical: `TRUE` if it is a Moodle Responses Report
-#'
+#' @noRd
 is_responses_report <- function(data) {
 
   if(!is.data.frame(data)) stop("`data` must be a data.frame", call. = F)
