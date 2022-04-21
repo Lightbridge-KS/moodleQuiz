@@ -10,3 +10,31 @@ colnm_to_tbl <- function(nms){
   tibble::as_tibble_row(x)
 
 }
+
+
+#' Expect Regex in Names of Object
+#'
+#' Test whether a regular expression can be matched in object names
+#'
+#' @param obj object to test
+#' @param regex regular expression
+#' @param type type of match:
+#' * "any": `regex` must match at least 1 names
+#' * "all": `regex` must match all names
+#'
+#' @return object of `testthat::expect_true()`
+#'
+expect_regex_in_names <- function(obj,
+                                  regex,
+                                  type = c("any", "all")
+                                  ) {
+
+  type <- match.arg(type)
+
+  nms <- names(obj)
+  lgls <- stringr::str_detect(regex, nms)
+  lgl <- do.call(type, as.list(lgls))
+
+  testthat::expect_true(lgl)
+
+}
