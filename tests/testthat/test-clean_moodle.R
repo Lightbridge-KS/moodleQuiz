@@ -1,19 +1,5 @@
 
 
-# Clean Data --------------------------------------------------------------
-
-
-## Grades
-grades_Quiz_1_cleaned <-
-  clean_moodle(grades_ls$Quiz_1,
-               extract_id_from = "Email address",
-               id_regex = "[:digit:]+")
-## Responses
-responses_Quiz_1_cleaned <-
-clean_moodle(responses_ls$Quiz_1,
-             extract_id_from = "Email address",
-             id_regex = "[:digit:]+")
-
 
 # Clean: Grade Report -----------------------------------------------------
 
