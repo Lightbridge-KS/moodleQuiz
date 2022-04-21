@@ -11,7 +11,8 @@ This package provides high-level ready to use function that performs data wrangl
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/Lightbridge-AI/moodleQuiz}
+  \item \url{https://github.com/Lightbridge-KS/moodleQuiz}
+  \item Report bugs at \url{https://github.com/Lightbridge-KS/moodleQuiz/issues}
 }
 
 }
