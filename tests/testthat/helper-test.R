@@ -32,7 +32,7 @@ expect_regex_in_names <- function(obj,
   type <- match.arg(type)
 
   nms <- names(obj)
-  lgls <- stringr::str_detect(regex, nms)
+  lgls <- stringr::str_detect(nms, regex)
   lgl <- do.call(type, as.list(lgls))
 
   testthat::expect_true(lgl)
