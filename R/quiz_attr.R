@@ -70,6 +70,7 @@ get_quiz_attr <- function(data) {
 #' @param df_raw A data.frame of Moodle Quiz report
 #'
 #' @return Numeric vector of length 1 indicate maximum quiz grade
+#' @noRd
 #'
 get_max_grade <- function(df_raw) {
 
@@ -92,6 +93,7 @@ get_max_grade <- function(df_raw) {
 #'  If `FALSE`, count each Cloze column as 1.
 #'
 #' @return An Integer
+#' @noRd
 #'
 get_max_resp <- function(df_resp, count_cloze_parts = F) {
 
@@ -122,6 +124,7 @@ get_max_resp <- function(df_resp, count_cloze_parts = F) {
 #' @param df_gr A data.frame of Moodle Grades report
 #'
 #' @return A data.frame with 2 columns: `q_no` for questions number, and `q_max` for maximum score.
+#' @noRd
 #'
 get_questions_no_max <- function(df_gr) {
 
@@ -146,6 +149,7 @@ get_questions_no_max <- function(df_gr) {
 #' @param df_resp A data.frame of Moodle Response report
 #'
 #' @return Numeric vector
+#' @noRd
 #'
 get_responses_no <- function(df_resp) {
 
