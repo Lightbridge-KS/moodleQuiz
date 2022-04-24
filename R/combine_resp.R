@@ -43,7 +43,7 @@
 combine_resp <- function(data,
                          # Clean
                          extract_id_from = c("Email address",
-                                             "Institution", "Department"),
+                                             "Institution", "Department", "ID number"),
                          id_regex = ".*", # Extract ID from Email
                          sep_name = " ", # Separate First name and Surname
                          # Encode
@@ -68,7 +68,7 @@ combine_resp <- function(data,
 combine_resp.list <- function(data,
                               # Clean
                               extract_id_from = c("Email address",
-                                                  "Institution", "Department"),
+                                                  "Institution", "Department", "ID number"),
                               id_regex = ".*", # Extract ID from Email
                               sep_name = " ", # Separate First name and Surname
                               # Encode
@@ -120,7 +120,7 @@ combine_resp.list <- function(data,
 combine_resp.data.frame <- function(data,
                                     # Clean
                                     extract_id_from = c("Email address",
-                                                        "Institution", "Department"),
+                                                        "Institution", "Department", "ID number"),
                                     id_regex = ".*", # Extract ID from Email
                                     sep_name = " ", # Separate First name and Surname
                                     # Encode
