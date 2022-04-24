@@ -6,7 +6,7 @@
 \usage{
 combine_resp(
   data,
-  extract_id_from = c("Email address", "Institution", "Department"),
+  extract_id_from = c("Email address", "Institution", "Department", "ID number"),
   id_regex = ".*",
   sep_name = " ",
   state = c("Finished", "In progress"),
