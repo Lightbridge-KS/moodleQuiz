@@ -7,7 +7,6 @@
 #' Count Student's Answers
 #'
 #' [count_answers()] counts student's answers from every "Response" columns from from a [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports).
-#' This is a wrapper around [count_answers_col()] that counts from one column.
 #' Answers from Moodle's quiz can be one of 3 types: single answered, multiple answered, or [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type).
 #' Each of these answers types formatted differently in the "Response" column.
 #' [count_answers()] knows each type of answers and count the answers by the best counting method it thinks.

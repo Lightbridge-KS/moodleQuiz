@@ -32,7 +32,6 @@ A data.frame
 }
 \description{
 \code{\link[=count_answers]{count_answers()}} counts student's answers from every "Response" columns from from a \href{https://docs.moodle.org/311/en/Quiz_reports}{Moodle Responses report(s)}.
-This is a wrapper around \code{\link[=count_answers_col]{count_answers_col()}} that counts from one column.
 Answers from Moodle's quiz can be one of 3 types: single answered, multiple answered, or \href{https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type}{embedded answers (Cloze)}.
 Each of these answers types formatted differently in the "Response" column.
 \code{\link[=count_answers]{count_answers()}} knows each type of answers and count the answers by the best counting method it thinks.
