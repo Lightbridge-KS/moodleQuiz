@@ -26,9 +26,12 @@ Imports:
     utils
 Suggests: 
     covr,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0),
     tibble
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
 BugReports: https://github.com/Lightbridge-KS/moodleQuiz/issues
+VignetteBuilder: knitr

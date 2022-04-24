@@ -1,0 +1,272 @@
+---
+title: "moodleQuiz"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{moodleQuiz}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+[Moodle](https://moodle.org), a learning management system, store data related to *quiz taking* in [Moodle Quiz Report](https://docs.moodle.org/311/en/Quiz_reports) which has 4 types: Grades report, Responses report, Statistic report, and Manual grading.
+
+`{moodleQuiz}` package have a functions that operate specifically on 2 types of report: **Grades report** and **Responses report**. The notable difference between the 2 are:
+
+-   **Grades report** has columns started with `Q. x /x`, these columns store score of each questions.
+
+-   **Responses report** has columns started with `Response x`, these columns store raw text responses of each questions.
+
+The rest of the columns are the same for these 2 reports:
+
+-   `Surname`: student's last name, `First name`: student's first name
+
+-   `Institution`: student's institution, `Department`: student's department
+
+-   `Email address`: student's Email (often, an educational account)
+
+-   `State`: the state of the attempt usually have 2 values, one of: **"Finished"** for submitted attempt, and **"In progress"** for ongoing not-yet-submitted attempt.
+
+-   `Started on` and `Completed` are the time point at which student started and submitted the quiz. `Time taken` is a duration from started to submitted the quiz.
+
+-   `Grade/xx`: total student's score (if present) of the quiz.
+
+## Getting Data
+
+**Grades report** and **Responses report** can be downloaded from Moodle server in various formats (e.g., `.csv`, `.xlsx`, `.json`). You have to find a way to import that report in to `R` as **a data frame or list of data frames**, which is the data structure in which functions in `{moodleQuiz}` package will operate on.
+
+Once you imported the report into `R`, do not format or clean any data prior to passing into the functions I will introduce to you next.
+
+## Example Data
+
+`{moodleQuiz}` package comes with example data of Grade reports and Responses reports.
+
+```{r setup, message=FALSE, warning=FALSE}
+library(moodleQuiz)
+library(dplyr)
+```
+
+### Grades Reports
+
+`grades_ls` is a *list* containing `r length(grades_ls)` *data frames* of **Moodle Grades Report**.
+
+```{r}
+class(grades_ls)
+```
+
+Each elements are data frames of Grade reports from `r length(grades_ls)` *different quiz* that the *same* group of students have completed.
+
+```{r}
+names(grades_ls)
+```
+
+For example, this is the Grade report of `Quiz_1s`
+
+```{r}
+head(grades_ls$Quiz_1)
+```
+
+Notice the last row here which is an "Overall average" that Moodle calculated for us.
+
+```{r}
+grades_ls$Quiz_1 %>% 
+  select(Surname, starts_with("G"), starts_with("Q")) %>% 
+  tail(1)
+```
+
+### Responses Report
+
+`responses_ls` is a *list* containing `r length(responses_ls)` *data frames* of **Moodle Responses Report**. Each data frame is a quiz that the *same* group of students have done.
+
+```{r}
+names(responses_ls)
+```
+
+```{r}
+head(responses_ls$Quiz_1)
+```
+
+## Check Submission
+
+`check_sub()` check student submission from `state` column of Grades or Responses report.
+
+Calling this function would
+
+1.  Clean and format column names
+
+2.  Encode `State` column resulting in `Encode` column, "Finished" attempt encoded as 1, and "In progress" attempt encoded as 0.
+
+3.  Filter rows by time and encoding. By default, It choose the first maximum score of each student.
+
+
+**Check Submission of Quiz 1**
+
+
+```{r}
+grades_ls$Quiz_1 %>%
+  check_sub(id_regex = "[:digit:]+") %>%
+  select(Name, ID, State, Encode)
+```
+
+**Check Submission of All Quizzes**
+
+
+You can check whether student submit multiple quizzes by passing **a list of data frames** as show here as `grades_ls`.
+
+
+```{r}
+grades_ls %>%
+  check_sub(id_regex = "[:digit:]+") %>%
+  select(Name, ID, ends_with("Encode"), Total)
+```
+
+Notice that the name of each data frame (e.g., "Quiz_1") are prefix in the column names, and `Total` column is calculated by sum of encoding by each student in each quiz. 
+
+Now you can check whether students submit each quizzes in a course and how many they missed by just calling one function!
+
+
+## Combine Responses
+
+
+
+`combine_resp()` combine student's responses (`Response x`) from the **Responses report**.
+
+
+Calling this function would
+
+1.  Clean and format column names
+
+2.  Filter rows by time and encoding. By default, It choose the first maximum score of each student.
+
+3.  Return data frame with `Response_x` columns
+
+
+**Combine Response of Quiz 1**
+
+This would get similar result to `check_sub()`, except it also return `Response_*` column and has an ability to split **Cloze columns**.
+
+```{r}
+responses_ls$Quiz_1 %>%
+  combine_resp(id_regex = "[:digit:]+") %>%
+  select(Name, ID, starts_with("R"))
+```
+
+**Combine Response of All Quizzes**
+
+
+Calling `combine_resp()` on a *list of data frame* would get all responses of each students combined in 1 data frame.
+
+
+```{r}
+responses_ls %>%
+  combine_resp(id_regex = "[:digit:]+") %>%
+  select(Name, ID, contains("R")) %>%
+  glimpse()
+```
+
+Notice that the name of each data frame (e.g., "Quiz_1") are prefix in the column names.
+
+## Count Responses
+
+`count_resp()` counts how many responses each student answered from the **Responses report**.
+
+Calling this function would
+
+1.  Clean and format column names
+
+2.  Filter rows by time and encoding. By default, It choose the first maximum score of each student.
+
+3.  Return data frame with `Count_Resp_x` columns
+
+
+In contrast to `combine_resp()`, `count_resp()` returns **counts** of how many responses do each students answered.
+
+Beware that `count_resp()` counts any non-blank answers that is not `-` (dash) as an answers, even though it is not appropriate to the question.  
+
+
+**Count Responses of Quiz 1**
+
+
+```{r}
+responses_ls$Quiz_1 %>%
+  count_resp(id_regex = "[:digit:]+") %>%
+  select(Name, ID, starts_with("Count"))
+```
+
+
+**Count Responses from All Quizzes**
+
+Calling `count_resp()` on a *list of data frame* would yields counts of responses for all quizzes and the total counts is calculated.
+
+```{r}
+responses_ls %>%
+  count_resp(id_regex = "[:digit:]+") %>%
+  select(Name, ID, contains("Count"), starts_with("Total"))
+```
+
+Using `count_resp()` to checking response counts can be a great way to check whether student did the quiz as expected, since the checking is done **per questions**, while `check_sub()` only check for **student's submission** of the quiz. 
+
+Interestingly, If the student did every questions from the quiz and forgot to press the "Submit all and finished" button, the result from `check_sub()` would shows that student didn't do the quiz ("In progress"), while `count_resp()` can reveal that student do the quiz with that many questions answered.
+
+
+## Combine Grades
+
+
+`combine_grades()` filter, adjust, and combine student's grade from `Grade/xx` column.
+
+
+Calling this function would
+
+1.  Clean and format column names
+
+2.  Filter rows by time and grade. By default, It choose the first maximum score of each student.
+
+3.  Return data frame with `Grade_x` columns (and may be `Qx`)
+
+
+**Combine & Adjust Grades of Quiz 1**
+
+You can filter grade by `choose_grade` parameter and readjust maximum grade to any score by `new_max_grade` parameter.
+
+
+```{r}
+grades_ls$Quiz_1 %>%
+  combine_grades(
+    id_regex = "[:digit:]+",
+    choose_grade = "max", # Choose only maximum grade of each student
+    new_max_grade = 100 # Adjust maximum grade to 100
+  ) %>%
+  select(Name, ID, starts_with("G"), starts_with("Q"))
+```
+
+
+**Combine Grades for All Quizzes**
+
+Calling `combine_grades()` on *list of data frame* would combine the score of each quizzes from each student in to 1 data frame, and `Total_x` column will be added as a sum of student's score.
+
+You can adjust the maximum score of each individual quizzes by input `new_max_grade` as a numeric vector corresponding to each quiz. In this example, I will adjust the maximum score of "Quiz_1" and "Quiz_2" to 25, and "Quiz_3" to 50.
+
+
+```{r}
+grades_ls %>%
+  combine_grades(
+    id_regex = "[:digit:]+",
+    choose_grade = "max", # Choose only maximum grade of each student
+    new_max_grade = c(25, 25, 50) # Maximum score of each quizzes
+  ) %>%
+  select(Name, ID, contains("Grade"), starts_with("Total")) %>%
+  glimpse()
+```
+
+
+---
+
+Last updated: `r Sys.Date()`
+
