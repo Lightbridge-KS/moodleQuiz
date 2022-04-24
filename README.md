@@ -52,15 +52,6 @@ across multiple Moodle quiz report of the same type.
 ``` r
 library(moodleQuiz)
 library(dplyr)
-#> Warning: package 'dplyr' was built under R version 4.1.2
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 ```
 
 Let’s say I have a Moodle Grades Report data frame of “Quiz_1”

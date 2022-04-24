@@ -48,7 +48,7 @@ All of theses 4 main functions are generic function that operate on **data frame
 
 # Example
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 library(moodleQuiz)
 library(dplyr)
 ```
