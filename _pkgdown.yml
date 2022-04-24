@@ -1,0 +1,28 @@
+url: https://lightbridge-ks.github.io/moodleQuiz/
+template:
+  bootstrap: 5
+  bootswatch: litera
+
+reference:
+- subtitle: Main Functions
+  contents:
+  - check_sub
+  - combine_resp
+  - count_resp
+  - combine_grades
+  - count_answers
+
+- subtitle: Quiz Attributes
+  contents:
+  - get_quiz_attr
+  - get_report_type
+
+- subtitle: Helpers
+  contents:
+  - clean_moodle
+  - get_report_type
+
+- subtitle: Example Data
+  contents:
+  - grades_ls
+  - responses_ls

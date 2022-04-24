@@ -12,6 +12,7 @@ This package provides high-level ready to use function that performs data wrangl
 Useful links:
 \itemize{
   \item \url{https://github.com/Lightbridge-KS/moodleQuiz}
+  \item \url{https://lightbridge-ks.github.io/moodleQuiz/}
   \item Report bugs at \url{https://github.com/Lightbridge-KS/moodleQuiz/issues}
 }
 

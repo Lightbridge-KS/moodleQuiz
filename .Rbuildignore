@@ -7,3 +7,6 @@ my_develop
 my_data
 ^\.github$
 ^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
