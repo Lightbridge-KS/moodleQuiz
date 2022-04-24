@@ -37,6 +37,3 @@ Answers from Moodle's quiz can be one of 3 types: single answered, multiple answ
 Each of these answers types formatted differently in the "Response" column.
 \code{\link[=count_answers]{count_answers()}} knows each type of answers and count the answers by the best counting method it thinks.
 }
-\examples{
-NULL
-}

@@ -26,7 +26,6 @@
 #' @return A data.frame
 #' @export
 #'
-#' @examples NULL
 count_answers <- function(data,
                           count_type = c("auto", "single", "multi", "cloze"),
                           sort = TRUE,
@@ -75,9 +74,7 @@ count_answers <- function(data,
 #' @param round_digits Integer to round the counted percentage or `NULL` to not round.
 #'
 #' @return A data.frame
-#' @export
-#'
-#' @examples NULL
+#' @noRd
 count_answers_col <- function(data, col,
                               count_type = c("auto", "single", "multi", "cloze"),
                               count_cloze_parts = FALSE, # Applies to only cloze col
