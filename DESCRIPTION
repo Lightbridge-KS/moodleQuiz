@@ -1,13 +1,13 @@
 Package: moodleQuiz
-Title: High-level functions for Wrangling, Combine, and Analyse Moodle Quiz Report
+Title: High-level functions for wrangle and combine Moodle Quiz Report
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Kittipos",
            family = "Sirivongrungson",
            role = c("aut", "cre"),
            email = "kittipos.sir@mahidol.edu")
-Description: This package provides high-level ready to use function that performs data wrangling,  
-    aggregration, and analysis on Moodle Quiz Report (i.e., Grades Report and Responses Report).
+Description: Provide high-level ready-to-use functions for data wrangling (i.e., cleaning, filtering, and encoding)
+    and combining Moodle Quiz Report (Grades Report and Responses Report).
 License: MIT + file LICENSE
 URL: https://github.com/Lightbridge-KS/moodleQuiz,
     https://lightbridge-ks.github.io/moodleQuiz/
