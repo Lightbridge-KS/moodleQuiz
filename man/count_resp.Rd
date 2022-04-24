@@ -83,5 +83,11 @@ cleans column names for easy manipulation, extracts student ID from "Email addre
 Blank or "-" (dash) response will not be counted.
 }
 \examples{
-NULL
+# Count Responses of Quiz 1
+count_resp(responses_ls$Quiz_1,
+           id_regex = "[:digit:]+")
+
+# Count Responses from All Quizzes
+count_resp(responses_ls,
+           id_regex = "[:digit:]+")
 }

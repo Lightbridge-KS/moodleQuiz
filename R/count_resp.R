@@ -50,7 +50,14 @@
 #'
 #' @export
 #'
-#' @examples NULL
+#' @examples
+#' # Count Responses of Quiz 1
+#' count_resp(responses_ls$Quiz_1,
+#'            id_regex = "[:digit:]+")
+#'
+#' # Count Responses from All Quizzes
+#' count_resp(responses_ls,
+#'            id_regex = "[:digit:]+")
 count_resp <- function(data,
                        # Clean
                        extract_id_from = c("Email address",

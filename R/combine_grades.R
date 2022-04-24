@@ -46,7 +46,15 @@
 #'   So that, "Grades_" columns from each data.frame are sit together in a single data.frame, and "Total_" column is added at the last column to indicate sum of all quizzes grades.
 #' @export
 #'
-#' @examples NULL
+#' @examples
+#' # Combine and Readjust Grades of Quiz 1
+#' combine_grades(grades_ls$Quiz_1,
+#'                id_regex = "[:digit:]+",
+#'                new_max_grade = 100)
+#'
+#' # Combine Grades of All Quizzes
+#' combine_grades(grades_ls,
+#'                id_regex = "[:digit:]+")
 combine_grades <- function(data,
                            # Clean
                            extract_id_from = c("Email address",

@@ -23,6 +23,8 @@
 #' @export
 #'
 #' @examples
+#' clean_moodle(grades_ls$Quiz_1,
+#'              id_regex = "[:digit:]+")
 clean_moodle <- function(data,
                          extract_id = TRUE,
                          extract_id_from = c("Email address",

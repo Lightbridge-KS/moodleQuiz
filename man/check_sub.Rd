@@ -65,5 +65,13 @@ This function also cleans column names of Moodle Quiz report for easier manipula
 and unites "First name" and "Surname" column into "Name".
 }
 \examples{
-NULL
+# Submission of Data Frame
+check_sub(grades_ls$Quiz_1,
+          id_regex = "[:digit:]+")
+
+# Submission of List of DF
+check_sub(grades_ls,
+          id_regex = "[:digit:]+")
+
+
 }

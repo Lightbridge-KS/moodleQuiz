@@ -43,3 +43,7 @@ Clean Moodle Quiz report for easier manipulation in \code{R}. It extracts studen
 unites "First name" and "Surname" column; converts dash ("-"), which can be presented when student not given answer, to \code{NA};
 and forces "Grade" and "Q. x /x" to numeric value (if any of "Not yet graded", "Requires grading", or "-" is presented it will be \code{NA}).
 }
+\examples{
+clean_moodle(grades_ls$Quiz_1,
+             id_regex = "[:digit:]+")
+}

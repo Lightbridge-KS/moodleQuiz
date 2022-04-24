@@ -76,5 +76,12 @@ If the report contains multiple attempts per student, you can also filter grades
 Like \code{\link[=check_sub]{check_sub()}}, this function also cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 }
 \examples{
-NULL
+# Combine and Readjust Grades of Quiz 1
+combine_grades(grades_ls$Quiz_1,
+               id_regex = "[:digit:]+",
+               new_max_grade = 100)
+
+# Combine Grades of All Quizzes
+combine_grades(grades_ls,
+               id_regex = "[:digit:]+")
 }

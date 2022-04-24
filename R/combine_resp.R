@@ -39,7 +39,13 @@
 #'   So that, "Response" columns from each data.frame are sit together in a single data.frame. The resulting response columns are in this format (default): "<listNames>-Responses-<number>"
 #' @export
 #'
-#' @examples NULL
+#' @examples
+#' # Combine Response from 1 Quiz
+#' combine_resp(responses_ls$Quiz_1, id_regex = "[:digit:]+")
+#'
+#' # Combine Response from multiple quizzes into 1 data frame
+#' combine_resp(responses_ls, id_regex = "[:digit:]+")
+#'
 combine_resp <- function(data,
                          # Clean
                          extract_id_from = c("Email address",

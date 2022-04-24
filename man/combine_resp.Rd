@@ -72,5 +72,10 @@ Other functionality are similar to \code{\link[=check_sub]{check_sub()}} such as
 cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".
 }
 \examples{
-NULL
+# Combine Response from 1 Quiz
+combine_resp(responses_ls$Quiz_1, id_regex = "[:digit:]+")
+
+# Combine Response from multiple quizzes into 1 data frame
+combine_resp(responses_ls, id_regex = "[:digit:]+")
+
 }

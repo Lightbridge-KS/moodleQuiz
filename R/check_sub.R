@@ -34,7 +34,16 @@
 #'   * If the `data` is a named list of data.frame; the output is the same as previously described, but all Moodle Quiz reports are [full-joined](https://dplyr.tidyverse.org/reference/mutate-joins.html) together by column "Name" and "ID".
 #'   And, a new column "Total" is computed by the sum of all "...State" columns.
 #'
-#' @examples NULL
+#' @examples
+#' # Submission of Data Frame
+#' check_sub(grades_ls$Quiz_1,
+#'           id_regex = "[:digit:]+")
+#'
+#' # Submission of List of DF
+#' check_sub(grades_ls,
+#'           id_regex = "[:digit:]+")
+#'
+#'
 #' @export
 check_sub <- function(data,
                       extract_id_from = c("Email address",
