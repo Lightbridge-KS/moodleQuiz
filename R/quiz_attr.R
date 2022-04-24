@@ -26,6 +26,11 @@
 #' @export
 #'
 #' @examples
+#' # Grades Report
+#' get_quiz_attr(grades_ls$Quiz_1)
+#'
+#' # Responses Report
+#' get_quiz_attr(responses_ls$Quiz_1)
 get_quiz_attr <- function(data) {
 
   if(!is_report(data)) stop("`data` is not a moodle quiz report", call. = F)

@@ -1,11 +1,19 @@
-#' Get Type of Moodle Quiz Report
+#' Check Types of Moodle Quiz Report
+#'
+#' Check types of [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports)
+#' whether it is Grades or Responses report.
 #'
 #' @param data A data.frame to test.
 #'
-#' @return Character vector: `"Grades"` for Moodle Grades Report, `Responses`  for Moodle Responses Report,
+#' @return Character vector: "Grades" for Moodle Grades Report, "Responses" for Moodle Responses Report,
 #'  or `NA` if it's not a Moodle Quiz report
 #'
 #' @export
+#' @examples
+#' # Grades Report
+#' get_report_type(grades_ls$Quiz_1)
+#' # Responses Report
+#' get_report_type(responses_ls$Quiz_1)
 #'
 get_report_type <- function(data) {
 

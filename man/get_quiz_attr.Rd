@@ -27,3 +27,10 @@ Get attributes or meta-information from \href{https://docs.moodle.org/311/en/Qui
 such as type of Moodle Quiz report, maximum grade of each quiz, question's number, question's maximum score,
 or embedded answer (Cloze) column names (if present).
 }
+\examples{
+# Grades Report
+get_quiz_attr(grades_ls$Quiz_1)
+
+# Responses Report
+get_quiz_attr(responses_ls$Quiz_1)
+}
