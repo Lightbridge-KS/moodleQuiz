@@ -42,7 +42,7 @@ The rest of the columns are the same for these 2 reports:
 
 **Grades report** and **Responses report** can be downloaded from Moodle server in various formats (e.g., `.csv`, `.xlsx`, `.json`). You have to find a way to import that report in to `R` as **a data frame or list of data frames**, which is the data structure in which functions in `{moodleQuiz}` package will operate on.
 
-Once you imported the report into `R`, do not format or clean any data prior to passing into the functions I will introduce to you next.
+Once you imported the report into `R`, do not format or clean anything prior to passing into the functions that I will introduce to you next.
 
 ## Example Data
 
@@ -67,7 +67,7 @@ Each elements are data frames of Grade reports from `r length(grades_ls)` *diffe
 names(grades_ls)
 ```
 
-For example, this is the Grade report of `Quiz_1s`
+For example, this is the Grade report of `Quiz_1`
 
 ```{r}
 head(grades_ls$Quiz_1)
