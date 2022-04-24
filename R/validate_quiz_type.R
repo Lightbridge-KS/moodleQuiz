@@ -4,7 +4,8 @@
 #'
 #' @return Character vector: `"Grades"` for Moodle Grades Report, `Responses`  for Moodle Responses Report,
 #'  or `NA` if it's not a Moodle Quiz report
-#'  @noRd
+#'
+#' @export
 #'
 get_report_type <- function(data) {
 
