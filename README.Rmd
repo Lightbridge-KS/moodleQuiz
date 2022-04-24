@@ -46,7 +46,6 @@ The 4 main functions of the `{moodleQuiz}` are as follows:
 
 All of theses 4 main functions are generic function that operate on **data frame** and **list of data frames** of Moodle Quiz report. The latter will be particularly useful when performing a data aggregation across multiple Moodle quiz report of the same type.
 
-
 # Example
 
 ```{r setup}
@@ -54,20 +53,17 @@ library(moodleQuiz)
 library(dplyr)
 ```
 
-
 Let's say I have a Moodle Grades Report data frame of "Quiz_1"
-
 
 ```{r}
 glimpse(grades_ls$Quiz_1)
 ```
 
-
 **Combine & Adjust Grades of Quiz 1**
 
 How to choose the maximum score of each student and readjust maximum grades to 100?
 
- Calling `combine_grades()` will do that in one step, plus it also cleans column names and extracts numeric student ID from Email address.
+Calling `combine_grades()` will do that in one step, plus it also cleans column names and extracts numeric student ID from Email address.
 
 ```{r}
 grades_ls$Quiz_1 %>%
@@ -82,7 +78,7 @@ grades_ls$Quiz_1 %>%
 
 **Combine Grades for All Quizzes**
 
-Supposed in a semester student have to do a graded assignment in a multiple quizzes, you can put each individual Grades Report in a list. 
+Supposed in a semester student have to do a graded assignment in a multiple quizzes, you can put each individual Grades Report in a list.
 
 Now it's **a list of data frames** (here as `grades_ls`).
 
@@ -106,8 +102,8 @@ grades_ls %>%
 
 # Learn more
 
--  TODO
+-   [Get started](https://lightbridge-ks.github.io/moodleQuiz/articles/moodleQuiz.html)
 
----
+------------------------------------------------------------------------
 
 Last updated: `r Sys.Date()`

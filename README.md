@@ -167,8 +167,9 @@ grades_ls %>%
 
 # Learn more
 
--   TODO
+-   [Get
+    started](https://lightbridge-ks.github.io/moodleQuiz/articles/moodleQuiz.html)
 
 ------------------------------------------------------------------------
 
-Last updated: 2022-04-24
+Last updated: 2022-04-25
