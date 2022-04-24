@@ -16,14 +16,14 @@ knitr::opts_chunk$set(
 # moodleQuiz
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml)
-[![codecov](https://codecov.io/gh/Lightbridge-KS/moodleQuiz/branch/main/graph/badge.svg?token=S8SD1X5PA0)](https://codecov.io/gh/Lightbridge-KS/moodleQuiz)
+
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml) [![codecov](https://codecov.io/gh/Lightbridge-KS/moodleQuiz/branch/main/graph/badge.svg?token=S8SD1X5PA0)](https://codecov.io/gh/Lightbridge-KS/moodleQuiz)
+
 <!-- badges: end -->
 
-The goal of the `moodleQuiz` package is to perform data wrangling, merging and analyse [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports) with simple ready-to-use functions.
+R package `{moodleQuiz}` contains high-level functions for cleaning, encoding, filtering, and combining student's score and responses from [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports).
 
-## Installation
+# Installation
 
 You can install the development version from [GitHub](https://github.com/) with:
 
@@ -32,7 +32,82 @@ You can install the development version from [GitHub](https://github.com/) with:
 remotes::install_github("Lightbridge-KS/moodleQuiz")
 ```
 
-## Examples
+# Overview
 
-To be continued...
+The 4 main functions of the `{moodleQuiz}` are as follows:
 
+-   `check_sub()`: check student's submission of the Moodle quiz report by looking at the `state` column.
+
+-   `combine_resp()`: combine student's responses (`Response x`) from the Responses report.
+
+-   `count_resp()`: count how many responses each student answered from the Responses report.
+
+-   `combine_grades()`: filter, adjust, and combine student's grade from `Grade/xx` column.
+
+All of theses 4 main functions are generic function that operate on **data frame** and **list of data frames** of Moodle Quiz report. The latter will be particularly useful when performing a data aggregation across multiple Moodle quiz report of the same type.
+
+
+# Example
+
+```{r setup}
+library(moodleQuiz)
+library(dplyr)
+```
+
+
+Let's say I have a Moodle Grades Report data frame of "Quiz_1"
+
+
+```{r}
+glimpse(grades_ls$Quiz_1)
+```
+
+
+**Combine & Adjust Grades of Quiz 1**
+
+How to choose the maximum score of each student and readjust maximum grades to 100?
+
+ Calling `combine_grades()` will do that in one step, plus it also cleans column names and extracts numeric student ID from Email address.
+
+```{r}
+grades_ls$Quiz_1 %>%
+  combine_grades(
+    extract_id_from = "Email address", # Extract Student ID from Email
+    id_regex = "[:digit:]+", # Regular expression to extract student ID
+    choose_grade = "max", # Choose only maximum grade of each student
+    new_max_grade = 100 # Adjust maximum grade to 100
+  ) %>%
+  select(Name, ID, starts_with("G"), starts_with("Q"))
+```
+
+**Combine Grades for All Quizzes**
+
+Supposed in a semester student have to do a graded assignment in a multiple quizzes, you can put each individual Grades Report in a list. 
+
+Now it's **a list of data frames** (here as `grades_ls`).
+
+```{r}
+grades_ls %>% 
+  purrr::map_lgl(is.data.frame)
+```
+
+Supply a list of data frames into `combine_grades()`, you can *combine* and *weight* grades from **multiple quizzes** into one data frame with a sum of student's score in the `Total_x` column.
+
+```{r}
+grades_ls %>% 
+  combine_grades(
+    extract_id_from = "Email address", # Extract Student ID from Email
+    id_regex = "[:digit:]+", # Regular expression to extract student ID
+    choose_grade = "max", # Choose only maximum grade of each student
+    new_max_grade = c(25, 25, 50) # Adjust maximum grade to 100
+  ) %>% 
+  select(Name, ID, contains("Grade"), starts_with("Total"))
+```
+
+# Learn more
+
+-  TODO
+
+---
+
+Last updated: `r Sys.Date()`
