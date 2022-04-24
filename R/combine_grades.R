@@ -198,7 +198,7 @@ combine_grades.data.frame <- function(data,
 #' @param round_digits Length 1 numeric vector indicate digits to round grade, If `NULL` no rounding.
 #'
 #' @return A data.frame
-#'
+#' @noRd
 adj_grades_moodle <- function(data_cleaned,
                               new_max_grade = NULL,
                               round_digits = 3 # If NULL, no round
@@ -260,7 +260,7 @@ adj_grades_moodle <- function(data_cleaned,
 #' @param choose_time (Character) To filter attempt of each student
 #'
 #' @return A data.frame
-#'
+#' @noRd
 filter_grades_moodle <- function(data_cleaned,
                                  choose_grade = c("max", "min", "mean", "all"),
                                  choose_time = c("first", "last", "all")

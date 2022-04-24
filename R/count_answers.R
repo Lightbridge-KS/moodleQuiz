@@ -133,7 +133,7 @@ count_answers_col <- function(data, col,
 #' @param sort (Logical) sorted or not
 #'
 #' @return A data.frame
-#'
+#' @noRd
 count_answers_single_col <- function(data,
                                      col,
                                      sort = TRUE) {
@@ -154,7 +154,7 @@ count_answers_single_col <- function(data,
 #' @param sort (Logical) sorted or not
 #'
 #' @return A data.frame
-#'
+#' @noRd
 count_answers_multi_col <- function(data,
                                     col,
                                     sort = TRUE
@@ -182,7 +182,7 @@ count_answers_multi_col <- function(data,
 #' @param sort (Logical) sorted or not
 #'
 #' @return A data.frame
-#'
+#' @noRd
 count_answers_cloze_col <- function(data,
                                     col,
                                     count_cloze_parts = FALSE, # Count Each parts of cloze?

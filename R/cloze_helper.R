@@ -8,7 +8,7 @@
 #' @param data A data.frame of Moodle Responses report
 #'
 #' @return A data.frame with 2 columns: \strong{`cloze_colnm`} for Cloze column names, and \strong{`parts`} for number of parts for each Cloze answers.
-#'
+#' @noRd
 get_cloze_attr <- function(data) {
 
   if(!has_cloze_col(data)) stop("`data` has no cloze column.", call. = F)
@@ -26,7 +26,7 @@ get_cloze_attr <- function(data) {
 #' @param cloze_col (character) Specify Cloze column to count parts.
 #'
 #' @return Numeric: indicate total parts of single Cloze answer.
-#'
+#' @noRd
 get_cloze_parts <- function(data, cloze_col){
 
   cloze_regex <- "part [:digit:]+:"
@@ -47,7 +47,7 @@ get_cloze_parts <- function(data, cloze_col){
 #' @param df A data.frame of Moodle Responses report
 #'
 #' @return Character vector indicate Cloze column names. If no cloze column, return `NULL`.
-#'
+#' @noRd
 get_cloze_col_names <- function(df) {
 
   regex <- "part [:digit:]+:"
@@ -71,7 +71,7 @@ get_cloze_col_names <- function(df) {
 #' @param df A data.frame of Moodle Responses report
 #'
 #' @return Character vector indicate Non-Cloze responses column names. If all responses are cloze column, return `NULL`.
-#'
+#' @noRd
 get_noncloze_resp_colnm <- function(df) {
 
   regex <- "part [:digit:]+:"
@@ -96,7 +96,7 @@ get_noncloze_resp_colnm <- function(df) {
 #' @param col (tidy-select) column to test
 #'
 #' @return Logical: `TRUE` if `col` is a Cloze column.
-#'
+#' @noRd
 is_cloze_col <- function(data, col) {
 
   col <- rlang::enquo(col)
@@ -114,7 +114,7 @@ is_cloze_col <- function(data, col) {
 #' @param df A data.frame of Moodle Responses report
 #'
 #' @return Logical: `TRUE` if `df` has at least one Cloze column.
-#'
+#' @noRd
 has_cloze_col <- function(df) {
 
   regex <- "part [:digit:]+:"

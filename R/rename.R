@@ -8,7 +8,7 @@
 #' @param sep (Character) Indicate separation of names of list of data.frame and `.cols`
 #'
 #' @return A list of data.frame with renamed columns
-#'
+#' @noRd
 rename_with_ls_df_names <- function(ls_df,
                                     .cols,
                                     name_position = c("prefix", "suffix"),

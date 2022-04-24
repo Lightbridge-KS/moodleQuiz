@@ -7,9 +7,8 @@
 #' @param part_glue (Character) This indicate characters that separate different "parts" of a Cloze column.
 #'
 #' @return A data.frame with cloze column splitted into multiple parts
-#' @export
+#' @noRd
 #'
-#' @examples
 split_cloze <- function(data, part_glue = "_part_") {
 
   if(!is.data.frame(data)) stop("`data` must be a data.frame", call. = F)
@@ -68,9 +67,8 @@ split_cloze <- function(data, part_glue = "_part_") {
 #'
 #' @return A data.frame with cloze column splitted into multiple parts
 #' @importFrom rlang :=
-#' @export
+#' @noRd
 #'
-#' @examples
 split_cloze_col <- function(data, col,
                             split_type = c("cols","rows"),
                             part_glue = "_part_"

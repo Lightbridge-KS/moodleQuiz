@@ -6,7 +6,7 @@
 #' @param quiet If `quiet = TRUE` no message display
 #'
 #' @return logical
-#'
+#' @noRd
 is_list_data.frame <- function(x, quiet = FALSE) {
 
   # Check if outer layer is data.frame
@@ -41,7 +41,7 @@ is_list_data.frame <- function(x, quiet = FALSE) {
 #' @param quiet If `quiet = TRUE` no message display
 #'
 #' @return logical
-#'
+#' @noRd
 is_named_list_data.frame <- function(x, quiet = FALSE) {
 
   # Check if outer layer is data.frame

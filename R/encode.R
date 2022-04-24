@@ -17,7 +17,7 @@
 #'   * \strong{"all"}: no filter applied, return all rows after applying `choose_encode`
 #'
 #' @return A data.frame that has been encoded and filtered
-#'
+#' @noRd
 encode_moodle <- function(df_cleaned,
                           state = c("Finished", "In progress"),
                           encode = c(1,0),
@@ -71,7 +71,7 @@ encode_moodle <- function(df_cleaned,
 #'
 #' @return encoded vector
 #' @details Elements that not match will return `NA`.
-#'
+#' @noRd
 encoder <- function(x, # Any vector
                     match,
                     encode = match # Encode that pair with match
