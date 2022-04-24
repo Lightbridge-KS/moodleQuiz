@@ -99,7 +99,7 @@
 <h3 id="getting-data">Getting Data<a class="anchor" aria-label="anchor" href="#getting-data"></a>
 </h3>
 <p><strong>Grades report</strong> and <strong>Responses report</strong> can be downloaded from Moodle server in various formats (e.g., <code>.csv</code>, <code>.xlsx</code>, <code>.json</code>). You have to find a way to import that report in to <code>R</code> as <strong>a data frame or list of data frames</strong>, which is the data structure in which functions in <a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a> package will operate on.</p>
-<p>Once you imported the report into <code>R</code>, do not format or clean any data prior to passing into the functions I will introduce to you next.</p>
+<p>Once you imported the report into <code>R</code>, do not format or clean anything prior to passing into the functions that I will introduce to you next.</p>
 </div>
 <div class="section level3">
 <h3 id="example-data">Example Data<a class="anchor" aria-label="anchor" href="#example-data"></a>
@@ -119,7 +119,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Quiz_1" "Quiz_2" "Quiz_3"</span></code></pre></div>
-<p>For example, this is the Grade report of <code>Quiz_1s</code></p>
+<p>For example, this is the Grade report of <code>Quiz_1</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span>
 <span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 18</span></span>

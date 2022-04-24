@@ -3,7 +3,7 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   moodleQuiz: moodleQuiz.html
-last_built: 2022-04-24T17:32Z
+last_built: 2022-04-24T17:38Z
 urls:
   reference: https://lightbridge-ks.github.io/moodleQuiz/reference
   article: https://lightbridge-ks.github.io/moodleQuiz/articles
