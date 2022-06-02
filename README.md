@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# moodleQuiz
+# moodleQuiz <a href="https://lightbridge-ks.github.io/moodleQuiz/"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -163,4 +163,4 @@ grades_ls %>%
 
 ------------------------------------------------------------------------
 
-Last updated: 2022-04-25
+Last updated: 2022-06-02

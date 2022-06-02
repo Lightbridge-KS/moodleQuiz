@@ -4,9 +4,11 @@
 \name{moodleQuiz-package}
 \alias{moodleQuiz}
 \alias{moodleQuiz-package}
-\title{moodleQuiz: High-level functions for Wrangling, Combine, and Analyse Moodle Quiz Report}
+\title{moodleQuiz: High-level functions for wrangle and combine Moodle Quiz Report}
 \description{
-This package provides high-level ready to use function that performs data wrangling, aggregration, and analysis on Moodle Quiz Report (i.e., Grades Report and Responses Report).
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
+Provide high-level ready-to-use functions for data wrangling (i.e., cleaning, filtering, and encoding) and combining Moodle Quiz Report (Grades Report and Responses Report).
 }
 \seealso{
 Useful links:
