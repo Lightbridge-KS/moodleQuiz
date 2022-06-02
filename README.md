@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# moodleQuiz <a href="https://lightbridge-ks.github.io/moodleQuiz/"><img src="man/figures/logo.png" align="right" height="138" /></a>
+# moodleQuiz <a href="https://lightbridge-ks.github.io/moodleQuiz/"><img src="man/figures/logo.png" align="right" height="138"/></a>
 
 <!-- badges: start -->
 
@@ -46,6 +46,24 @@ All of theses 4 main functions are generic function that operate on
 **data frame** and **list of data frames** of Moodle Quiz report. The
 latter will be particularly useful when performing a data aggregation
 across multiple Moodle quiz report of the same type.
+
+## History
+
+A long time ago, I’ve build a Shiny app for my colleagues to manipulate
+Moodle Quiz report. As the app grows bigger, I realized that I have to
+separate the [*business
+logic*](https://engineering-shiny.org/structuring-project.html#business-logic-and-application-logic)
+from the application logic, so that the app can be maintainable.
+Instead, I’ve focus on writing functions, and shift my aim to build
+**system of functions** to manipulate Moodle Quiz report as easy as
+possible for R user.
+
+Afterwards, My collection of functions become this `{moodleQuiz}`
+package which drives the logic of [this shiny
+app](https://github.com/Lightbridge-KS/SELECx_combine_quiz-App) to
+facilitate the process of retrieve and combine student’s score form
+[SELECx](http://selecx.si.mahidol.ac.th) (a Moodle platform from Faculty
+of Medicine Siriraj Hospital, Mahidol University, Thailand).
 
 # Example
 
