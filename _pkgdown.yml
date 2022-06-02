@@ -15,7 +15,6 @@ reference:
 - subtitle: Quiz Attributes
   contents:
   - get_quiz_attr
-  - get_report_type
 
 - subtitle: Helpers
   contents:

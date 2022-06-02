@@ -13,12 +13,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# moodleQuiz
+# moodleQuiz <a href="https://lightbridge-ks.github.io/moodleQuiz/"><img src="man/figures/logo.png" align="right" height="138"/></a>
 
 <!-- badges: start -->
-
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml) [![codecov](https://codecov.io/gh/Lightbridge-KS/moodleQuiz/branch/main/graph/badge.svg?token=S8SD1X5PA0)](https://codecov.io/gh/Lightbridge-KS/moodleQuiz)
-
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml) [![codecov](https://codecov.io/gh/Lightbridge-KS/moodleQuiz/branch/main/graph/badge.svg?token=S8SD1X5PA0)](https://codecov.io/gh/Lightbridge-KS/moodleQuiz)
 <!-- badges: end -->
 
 R package `{moodleQuiz}` contains high-level functions for cleaning, encoding, filtering, and combining student's score and responses from [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports).
@@ -45,6 +44,12 @@ The 4 main functions of the `{moodleQuiz}` are as follows:
 -   `combine_grades()`: filter, adjust, and combine student's grade from `Grade/xx` column.
 
 All of theses 4 main functions are generic function that operate on **data frame** and **list of data frames** of Moodle Quiz report. The latter will be particularly useful when performing a data aggregation across multiple Moodle quiz report of the same type.
+
+## History
+
+A long time ago, I've build a Shiny app for my colleagues to manipulate Moodle Quiz report. As the app grows bigger, I realized that I have to separate the [*business logic*](https://engineering-shiny.org/structuring-project.html#business-logic-and-application-logic) from the application logic, so that the app can be maintainable. Instead, I've focus on writing functions, and shift my aim to build **system of functions** to manipulate Moodle Quiz report as easy as possible for R user.
+
+Afterwards, My collection of functions become this `{moodleQuiz}` package which drives the logic of [this shiny app](https://github.com/Lightbridge-KS/SELECx_combine_quiz-App) to facilitate the process of retrieve and combine student's score form [SELECx](http://selecx.si.mahidol.ac.th) (a Moodle platform from Faculty of Medicine Siriraj Hospital, Mahidol University, Thailand).
 
 # Example
 

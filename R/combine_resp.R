@@ -33,7 +33,7 @@
 #' @param part_glue (Character) If `split_cloze = TRUE` and cloze response columns is presented, `part_glue` represent a character that *glues* the names of "Response" column and each "Parts" of Cloze columns together.
 #' @param sep_col (Character) If `data` is a named list of data.frame, `sep_col` indicate a character separation between names of list and "State" or "Response" columns.
 #'
-#' @return **A data.frame**, its output content is determined by class of its first argument: `data`.
+#' @return \strong{A data.frame}, its output content is determined by class of its first argument: `data`.
 #'   * If the `data` is a data.frame; the output is an encoded, filtered, and cleaned data.frame of Moodle Responses report.
 #'   * If the `data` is a named list of data.frame; the output is the same as previously described, but all Moodle Quiz reports are [full-joined](https://dplyr.tidyverse.org/reference/mutate-joins.html) together by column "Name" and "ID".
 #'   So that, "Response" columns from each data.frame are sit together in a single data.frame. The resulting response columns are in this format (default): "<listNames>-Responses-<number>"
