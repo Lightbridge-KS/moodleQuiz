@@ -4,7 +4,7 @@
 \name{moodleQuiz-package}
 \alias{moodleQuiz}
 \alias{moodleQuiz-package}
-\title{moodleQuiz: High-level functions for wrangle and combine Moodle Quiz Report}
+\title{moodleQuiz: A High-level R Package for Manipulation of Moodle Quiz Report}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

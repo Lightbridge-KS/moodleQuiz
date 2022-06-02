@@ -1,5 +1,5 @@
 Package: moodleQuiz
-Title: High-level functions for wrangle and combine Moodle Quiz Report
+Title: A High-level R Package for Manipulation of Moodle Quiz Report
 Version: 0.1.0
 Authors@R: 
     person(given = "Kittipos",
