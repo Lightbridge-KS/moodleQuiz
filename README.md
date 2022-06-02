@@ -60,7 +60,7 @@ possible for R user.
 Afterwards, My collection of functions become this `{moodleQuiz}`
 package which drives the logic of [this shiny
 app](https://github.com/Lightbridge-KS/SELECx_combine_quiz-App) to
-facilitate the process of retrieve and combine student’s score form
+facilitate the process of retrieve and combine student’s score from
 [SELECx](http://selecx.si.mahidol.ac.th) (a Moodle platform from Faculty
 of Medicine Siriraj Hospital, Mahidol University, Thailand).
 
