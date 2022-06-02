@@ -6,6 +6,9 @@
 
 #' Count Student's Answers
 #'
+#' @description
+#' `r lifecycle::badge('experimental')`
+#'
 #' [count_answers()] counts student's answers from every "Response" columns from from a [Moodle Responses report(s)](https://docs.moodle.org/311/en/Quiz_reports).
 #' Answers from Moodle's quiz can be one of 3 types: single answered, multiple answered, or [embedded answers (Cloze)](https://docs.moodle.org/311/en/Embedded_Answers_(Cloze)_question_type).
 #' Each of these answers types formatted differently in the "Response" column.
