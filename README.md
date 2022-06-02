@@ -6,10 +6,9 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R-CMD-check](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Lightbridge-AI/moodleQuiz/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://codecov.io/gh/Lightbridge-KS/moodleQuiz/branch/main/graph/badge.svg?token=S8SD1X5PA0)](https://codecov.io/gh/Lightbridge-KS/moodleQuiz)
-
 <!-- badges: end -->
 
 R package `{moodleQuiz}` contains high-level functions for cleaning,
