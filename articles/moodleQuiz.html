@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="moodleQuiz">
 <meta property="og:description" content="moodleQuiz">
@@ -74,7 +74,7 @@
 
 
 <div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>moodleQuiz</h1>
             
       
@@ -113,67 +113,70 @@
 </h3>
 <p><a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a> package comes with example data of Grade reports and Responses reports.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="grades-reports">Grades Reports<a class="anchor" aria-label="anchor" href="#grades-reports"></a>
 </h4>
 <p><code>grades_ls</code> is a <em>list</em> containing 3 <em>data frames</em> of <strong>Moodle Grades Report</strong>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">)</span>
-<span class="co">#&gt; [1] "list"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "list"</span></span></code></pre></div>
 <p>Each elements are data frames of Grade reports from 3 <em>different quiz</em> that the <em>same</em> group of students have completed.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Quiz_1" "Quiz_2" "Quiz_3"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Quiz_1" "Quiz_2" "Quiz_3"</span></span></code></pre></div>
 <p>For example, this is the Grade report of <code>Quiz_1</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 18</span></span>
-<span class="co">#&gt;   Surname `First name` Institution Department `Email address` State `Started on`</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Roquem… Jada         <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u017@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Ali     Ronin        <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u001@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Hoffpa… Jerry        <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u002@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Babbitt Nathan       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u026@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Huynh   Rohith       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u024@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Ellis   Joy          <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u013@example.c… Fini… 2 June 2021…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 11 more variables: `Time taken` &lt;chr&gt;, Completed &lt;chr&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `Grade/10.00` &lt;dbl&gt;, `Q. 1 /0.79` &lt;dbl&gt;, `Q. 2 /0.26` &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `Q. 3 /2.37` &lt;dbl&gt;, `Q. 4 /2.11` &lt;dbl&gt;, `Q. 5 /2.11` &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `Q. 6 /0.26` &lt;dbl&gt;, `Q. 7 /1.05` &lt;chr&gt;, `Q. 8 /1.05` &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 18</span></span></span>
+<span><span class="co">#&gt;   Surname  First…¹ Insti…² Depar…³ Email…⁴ State Start…⁵ Time …⁶ Compl…⁷ Grade…⁸</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Roquemo… Jada    <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u017@e… Fini… 2 June… 16 min… 2 June…    9.47</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Ali      Ronin   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u001@e… Fini… 2 June… 17 min… 2 June…    9.74</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Hoffpau… Jerry   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u002@e… Fini… 2 June… 11 min… 2 June…    9.47</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Babbitt  Nathan  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u026@e… Fini… 2 June… 11 min… 2 June…   10   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Huynh    Rohith  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u024@e… Fini… 2 June… 14 min… 2 June…   10   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Ellis    Joy     <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u013@e… Fini… 2 June… 10 min… 2 June…   10   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 8 more variables: `Q. 1 /0.79` &lt;dbl&gt;, `Q. 2 /0.26` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `Q. 3 /2.37` &lt;dbl&gt;, `Q. 4 /2.11` &lt;dbl&gt;, `Q. 5 /2.11` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `Q. 6 /0.26` &lt;dbl&gt;, `Q. 7 /1.05` &lt;chr&gt;, `Q. 8 /1.05` &lt;dbl&gt;, and abbreviated</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​`First name`, ²​Institution, ³​Department, ⁴​`Email address`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁵​`Started on`, ⁶​`Time taken`, ⁷​Completed, ⁸​`Grade/10.00`</span></span></span></code></pre></div>
 <p>Notice the last row here which is an “Overall average” that Moodle calculated for us.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Surname</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 10</span></span>
-<span class="co">#&gt;   Surname      `Grade/10.00` `Q. 1 /0.79` `Q. 2 /0.26` `Q. 3 /2.37` `Q. 4 /2.11`</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Overall ave…          9.55         0.64         0.26         2.28         2.02</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 4 more variables: `Q. 5 /2.11` &lt;dbl&gt;, `Q. 6 /0.26` &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `Q. 7 /1.05` &lt;chr&gt;, `Q. 8 /1.05` &lt;dbl&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Surname</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 10</span></span></span>
+<span><span class="co">#&gt;   Surname        Grade…¹ Q. 1 …² Q. 2 …³ Q. 3 …⁴ Q. 4 …⁵ Q. 5 …⁶ Q. 6 …⁷ Q. 7 …⁸</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Overall avera…    9.55    0.64    0.26    2.28    2.02     2.1    0.25 0.95   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 1 more variable: `Q. 8 /1.05` &lt;dbl&gt;, and abbreviated variable names</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ¹​`Grade/10.00`, ²​`Q. 1 /0.79`, ³​`Q. 2 /0.26`, ⁴​`Q. 3 /2.37`, ⁵​`Q. 4 /2.11`,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁶​`Q. 5 /2.11`, ⁷​`Q. 6 /0.26`, ⁸​`Q. 7 /1.05`</span></span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="responses-report">Responses Report<a class="anchor" aria-label="anchor" href="#responses-report"></a>
 </h4>
 <p><code>responses_ls</code> is a <em>list</em> containing 2 <em>data frames</em> of <strong>Moodle Responses Report</strong>. Each data frame is a quiz that the <em>same</em> group of students have done.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">responses_ls</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Quiz_1" "Quiz_2"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">responses_ls</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Quiz_1" "Quiz_2"</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 12</span></span>
-<span class="co">#&gt;   Surname `First name` Institution Department `Email address` State `Started on`</span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Xiong   Lance        <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u004@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Halami… Sydney       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u002@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Palomi… Itzel        <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u016@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">4</span> el-Far… Hakam        <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u001@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">5</span> al-Far… Hamood       <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u012@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Solis   Dominique    <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         u007@example.c… Fini… 19 April 20…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 5 more variables: `Time taken` &lt;chr&gt;, Completed &lt;chr&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   `Grade/2.00` &lt;chr&gt;, `Response 1` &lt;chr&gt;, `Response 2` &lt;chr&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 12</span></span></span>
+<span><span class="co">#&gt;   Surname  First…¹ Insti…² Depar…³ Email…⁴ State Start…⁵ Time …⁶ Compl…⁷ Grade…⁸</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Xiong    Lance   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u004@e… Fini… 19 Apr… 11 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> Halamic… Sydney  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u002@e… Fini… 19 Apr… 15 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> Palomino Itzel   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u016@e… Fini… 19 Apr… 19 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> el-Faro… Hakam   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u001@e… Fini… 19 Apr… 12 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> al-Farha Hamood  <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u012@e… Fini… 19 Apr… 12 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Solis    Domini… <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      u007@e… Fini… 19 Apr… 14 min… 19 Apr… Not ye…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 2 more variables: `Response 1` &lt;chr&gt;, `Response 2` &lt;chr&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​`First name`, ²​Institution, ³​Department,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​`Email address`, ⁵​`Started on`, ⁶​`Time taken`, ⁷​Completed, ⁸​`Grade/2.00`</span></span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -188,43 +191,43 @@
 </ol>
 <p><strong>Check Submission of Quiz 1</strong></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/check_sub.html">check_sub</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="va">State</span>, <span class="va">Encode</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 4</span></span>
-<span class="co">#&gt;    Name               ID    State    Encode</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemore     017   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali          001   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir    002   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt     026   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh       024   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis          013   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson      023   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher Dillon 003   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz       018   Finished      1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-Attar   022   Finished      1</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/check_sub.html">check_sub</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="va">State</span>, <span class="va">Encode</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 4</span></span></span>
+<span><span class="co">#&gt;    Name               ID    State    Encode</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemore     017   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali          001   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir    002   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt     026   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh       024   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis          013   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson      023   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher Dillon 003   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz       018   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-Attar   022   Finished      1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 <p><strong>Check Submission of All Quizzes</strong></p>
 <p>You can check whether student submit multiple quizzes by passing <strong>a list of data frames</strong> as show here as <code>grades_ls</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/check_sub.html">check_sub</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"Encode"</span><span class="op">)</span>, <span class="va">Total</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 6</span></span>
-<span class="co">#&gt;    Name               ID    Quiz_1_Encode Quiz_2_Encode Quiz_3_Encode Total</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemore     017               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali          001               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir    002               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt     026               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh       024               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis          013               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson      023               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher Dillon 003               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz       018               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-Attar   022               1             1             1     3</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/check_sub.html">check_sub</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"Encode"</span><span class="op">)</span>, <span class="va">Total</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 6</span></span></span>
+<span><span class="co">#&gt;    Name               ID    Quiz_1_Encode Quiz_2_Encode Quiz_3_Encode Total</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemore     017               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali          001               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir    002               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt     026               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh       024               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis          013               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson      023               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher Dillon 003               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz       018               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-Attar   022               1             1             1     3</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 <p>Notice that the name of each data frame (e.g., “Quiz_1”) are prefix in the column names, and <code>Total</code> column is calculated by sum of encoding by each student in each quiz.</p>
 <p>Now you can check whether students submit each quizzes in a course and how many they missed by just calling one function!</p>
 </div>
@@ -241,39 +244,39 @@
 <p><strong>Combine Response of Quiz 1</strong></p>
 <p>This would get similar result to <code><a href="../reference/check_sub.html">check_sub()</a></code>, except it also return <code>Response_*</code> column and has an ability to split <strong>Cloze columns</strong>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/combine_resp.html">combine_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 4</span></span>
-<span class="co">#&gt;    Name             ID    Response_1                                  Response_2</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004   intuitively singled out as the instigator … she repli…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002   Tarzan’s face was a pathetic expression of… the means…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016   not to harm you if you will return our ivo… -         </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001   “A derelict,” was the terse explanation of… “I fear,”…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012   At last they passed through two great wall… Finding t…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007   the powers of the ape-man and overestimate… though he…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009   upon the unsuspecting woman. A faint rustl… and fortu…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013   “In time to save you from death upon the a… warriors …</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025   A FRIEND.                                   Thus, mak…</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018   very faithful and loyal wife, but as she h… “they wer…</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/combine_resp.html">combine_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 4</span></span></span>
+<span><span class="co">#&gt;    Name             ID    Response_1                                     Respo…¹</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004   intuitively singled out as the instigator of … she re…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002   Tarzan’s face was a pathetic expression of di… the me…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016   not to harm you if you will return our ivory … -      </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001   “A derelict,” was the terse explanation of th… “I fea…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012   At last they passed through two great walls a… Findin…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007   the powers of the ape-man and overestimated t… though…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009   upon the unsuspecting woman. A faint rustling… and fo…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013   “In time to save you from death upon the alta… warrio…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025   A FRIEND.                                      Thus, …</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018   very faithful and loyal wife, but as she had … “they …</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows, and abbreviated variable name ¹​Response_2</span></span></span></code></pre></div>
 <p><strong>Combine Response of All Quizzes</strong></p>
 <p>Calling <code><a href="../reference/combine_resp.html">combine_resp()</a></code> on a <em>list of data frame</em> would get all responses of each students combined in 1 data frame.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">responses_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/combine_resp.html">combine_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 26</span>
-<span class="co">#&gt; Columns: 7</span>
-<span class="co">#&gt; $ Name              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Lance Xiong", "Sydney Halamicek", "Itzel Palomino",…</span>
-<span class="co">#&gt; $ ID                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "004", "002", "016", "001", "012", "007", "009", "01…</span>
-<span class="co">#&gt; $ Quiz_1_Response_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "intuitively singled out as the instigator of the ou…</span>
-<span class="co">#&gt; $ Quiz_1_Response_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "she replied. “The thing that has just happened has …</span>
-<span class="co">#&gt; $ Quiz_2_Response_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "The next day Thuran was worse. Almost constantly he…</span>
-<span class="co">#&gt; $ Quiz_2_Response_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "you insisted it would have been too late to have re…</span>
-<span class="co">#&gt; $ Quiz_2_Response_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "While Monsieur Flaubert spoke Tarzan selected a cig…</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">responses_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/combine_resp.html">combine_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"R"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 26</span></span>
+<span><span class="co">#&gt; Columns: 7</span></span>
+<span><span class="co">#&gt; $ Name              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Lance Xiong", "Sydney Halamicek", "Itzel Palomino",…</span></span>
+<span><span class="co">#&gt; $ ID                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "004", "002", "016", "001", "012", "007", "009", "01…</span></span>
+<span><span class="co">#&gt; $ Quiz_1_Response_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "intuitively singled out as the instigator of the ou…</span></span>
+<span><span class="co">#&gt; $ Quiz_1_Response_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "she replied. “The thing that has just happened has …</span></span>
+<span><span class="co">#&gt; $ Quiz_2_Response_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "The next day Thuran was worse. Almost constantly he…</span></span>
+<span><span class="co">#&gt; $ Quiz_2_Response_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "you insisted it would have been too late to have re…</span></span>
+<span><span class="co">#&gt; $ Quiz_2_Response_3 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "While Monsieur Flaubert spoke Tarzan selected a cig…</span></span></code></pre></div>
 <p>Notice that the name of each data frame (e.g., “Quiz_1”) are prefix in the column names.</p>
 </div>
 <div class="section level3">
@@ -290,43 +293,43 @@
 <p>Beware that <code><a href="../reference/count_resp.html">count_resp()</a></code> counts any non-blank answers that is not <code>-</code> (dash) as an answers, even though it is not appropriate to the question.</p>
 <p><strong>Count Responses of Quiz 1</strong></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/count_resp.html">count_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Count"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 3</span></span>
-<span class="co">#&gt;    Name             ID    Count_Resp_2</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016              1</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025              2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018              2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">responses_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/count_resp.html">count_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Count"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 3</span></span></span>
+<span><span class="co">#&gt;    Name             ID    Count_Resp_2</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016              1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025              2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018              2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 <p><strong>Count Responses from All Quizzes</strong></p>
 <p>Calling <code><a href="../reference/count_resp.html">count_resp()</a></code> on a <em>list of data frame</em> would yields counts of responses for all quizzes and the total counts is calculated.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">responses_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/count_resp.html">count_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Count"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 5</span></span>
-<span class="co">#&gt;    Name             ID    Quiz_1_Count_Resp_2 Quiz_2_Count_Resp_3 Total_5</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016                     1                   3       4</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009                     2                   2       4</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013                     2                   2       4</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025                     2                   3       5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018                     2                   2       4</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">responses_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/count_resp.html">count_resp</a></span><span class="op">(</span>id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Count"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 5</span></span></span>
+<span><span class="co">#&gt;    Name             ID    Quiz_1_Count_Resp_2 Quiz_2_Count_Resp_3 Total_5</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Lance Xiong      004                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sydney Halamicek 002                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Itzel Palomino   016                     1                   3       4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Hakam el-Farooq  001                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Hamood al-Farha  012                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dominique Solis  007                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhjade Alarid    009                     2                   2       4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Jordan Tan       013                     2                   2       4</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Kevin Vasquez    025                     2                   3       5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Angela Carrillo  018                     2                   2       4</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></span></code></pre></div>
 <p>Using <code><a href="../reference/count_resp.html">count_resp()</a></code> to checking response counts can be a great way to check whether student did the quiz as expected, since the checking is done <strong>per questions</strong>, while <code><a href="../reference/check_sub.html">check_sub()</a></code> only check for <strong>student’s submission</strong> of the quiz.</p>
 <p>Interestingly, If the student did every questions from the quiz and forgot to press the “Submit all and finished” button, the result from <code><a href="../reference/check_sub.html">check_sub()</a></code> would shows that student didn’t do the quiz (“In progress”), while <code><a href="../reference/count_resp.html">count_resp()</a></code> can reveal that student do the quiz with that many questions answered.</p>
 </div>
@@ -343,49 +346,49 @@
 <p><strong>Combine &amp; Adjust Grades of Quiz 1</strong></p>
 <p>You can filter grade by <code>choose_grade</code> parameter and readjust maximum grade to any score by <code>new_max_grade</code> parameter.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/combine_grades.html">combine_grades</a></span><span class="op">(</span>
-    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,
-    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span>
-    new_max_grade <span class="op">=</span> <span class="fl">100</span> <span class="co"># Adjust maximum grade to 100</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 11</span></span>
-<span class="co">#&gt;    Name          ID    Grade_100    Q1    Q2    Q3    Q4    Q5    Q6    Q7    Q8</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemo… 017        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali     001        97.4   7.9   2.6  23.7  21.1  21.1   2.6   7.9  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpa… 002        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbi… 026       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh  024       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis     013       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson 023        92.1   7.9   2.6  21.1  15.8  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher … 003        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz  018       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-A… 022       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/combine_grades.html">combine_grades</a></span><span class="op">(</span></span>
+<span>    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,</span>
+<span>    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span></span>
+<span>    new_max_grade <span class="op">=</span> <span class="fl">100</span> <span class="co"># Adjust maximum grade to 100</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 26 × 11</span></span></span>
+<span><span class="co">#&gt;    Name            ID    Grade…¹    Q1    Q2    Q3    Q4    Q5    Q6    Q7    Q8</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Jada Roquemore  017      94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Ronin Ali       001      97.4   7.9   2.6  23.7  21.1  21.1   2.6   7.9  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir 002      94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt  026     100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Rohith Huynh    024     100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Joy Ellis       013     100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson   023      92.1   7.9   2.6  21.1  15.8  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Christopher Di… 003      94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Israel Munoz    018     100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zubaida al-Att… 022     100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 16 more rows, and abbreviated variable name ¹​Grade_100</span></span></span></code></pre></div>
 <p><strong>Combine Grades for All Quizzes</strong></p>
 <p>Calling <code><a href="../reference/combine_grades.html">combine_grades()</a></code> on <em>list of data frame</em> would combine the score of each quizzes from each student in to 1 data frame, and <code>Total_x</code> column will be added as a sum of student’s score.</p>
 <p>You can adjust the maximum score of each individual quizzes by input <code>new_max_grade</code> as a numeric vector corresponding to each quiz. In this example, I will adjust the maximum score of “Quiz_1” and “Quiz_2” to 25, and “Quiz_3” to 50.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/combine_grades.html">combine_grades</a></span><span class="op">(</span>
-    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,
-    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span>
-    new_max_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span> <span class="co"># Maximum score of each quizzes</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Grade"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 26</span>
-<span class="co">#&gt; Columns: 6</span>
-<span class="co">#&gt; $ Name            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Jada Roquemore", "Ronin Ali", "Jerry Hoffpauir", "Nat…</span>
-<span class="co">#&gt; $ ID              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "017", "001", "002", "026", "024", "013", "023", "003"…</span>
-<span class="co">#&gt; $ Quiz_1_Grade_25 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 23.675, 24.350, 23.675, 25.000, 25.000, 25.000, 23.025…</span>
-<span class="co">#&gt; $ Quiz_2_Grade_25 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.425, 20.350, 16.650, 18.500, 25.000, 13.875, 25.000…</span>
-<span class="co">#&gt; $ Quiz_3_Grade_50 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 49.95, 46.40, 49.95, 49.95, 49.95, 49.95, 46.40, 49.95…</span>
-<span class="co">#&gt; $ Total_100       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 93.050, 91.100, 90.275, 93.450, 99.950, 88.825, 94.425…</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/combine_grades.html">combine_grades</a></span><span class="op">(</span></span>
+<span>    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,</span>
+<span>    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span></span>
+<span>    new_max_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span> <span class="co"># Maximum score of each quizzes</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Grade"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 26</span></span>
+<span><span class="co">#&gt; Columns: 6</span></span>
+<span><span class="co">#&gt; $ Name            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Jada Roquemore", "Ronin Ali", "Jerry Hoffpauir", "Nat…</span></span>
+<span><span class="co">#&gt; $ ID              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "017", "001", "002", "026", "024", "013", "023", "003"…</span></span>
+<span><span class="co">#&gt; $ Quiz_1_Grade_25 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 23.675, 24.350, 23.675, 25.000, 25.000, 25.000, 23.025…</span></span>
+<span><span class="co">#&gt; $ Quiz_2_Grade_25 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19.425, 20.350, 16.650, 18.500, 25.000, 13.875, 25.000…</span></span>
+<span><span class="co">#&gt; $ Quiz_3_Grade_50 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 49.95, 46.40, 49.95, 49.95, 49.95, 49.95, 46.40, 49.95…</span></span>
+<span><span class="co">#&gt; $ Total_100       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 93.050, 91.100, 90.275, 93.450, 99.950, 88.825, 94.425…</span></span></code></pre></div>
 <hr>
-<p>Last updated: 2022-06-02</p>
+<p>Last updated: 2022-09-23</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -401,7 +404,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

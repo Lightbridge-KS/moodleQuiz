@@ -3,7 +3,7 @@
 This function can combine "Grade/xx" columns from multiple Moodle Grades reports into a single data.frame.
 Furthermore, you can adjust or weight maximum score of each quizzes and "Total" score will be computed.
 If the report contains multiple attempts per student, you can also filter grades of each student by score ("Grade/xx" column) and start time ("Started on" column), e.g. the first best score of each students.
-Like check_sub(), this function also cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".'><title>Combine Grades — combine_grades • moodleQuiz</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Combine Grades — combine_grades"><meta property="og:description" content='combine_grades() is a generic function that combine, adjust, and filter student grades from Moodle Grades report(s) (not Responses report).
+Like check_sub(), this function also cleans column names for easy manipulation, extracts student ID from "Email address", and unites "First name" and "Surname" column into "Name".'><title>Combine Grades — combine_grades • moodleQuiz</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Combine Grades — combine_grades"><meta property="og:description" content='combine_grades() is a generic function that combine, adjust, and filter student grades from Moodle Grades report(s) (not Responses report).
 This function can combine "Grade/xx" columns from multiple Moodle Grades reports into a single data.frame.
 Furthermore, you can adjust or weight maximum score of each quizzes and "Total" score will be computed.
 If the report contains multiple attempts per student, you can also filter grades of each student by score ("Grade/xx" column) and start time ("Started on" column), e.g. the first best score of each students.
@@ -66,106 +66,129 @@ Like <code><a href="check_sub.html">check_sub()</a></code>, this function also c
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">combine_grades</span><span class="op">(</span>
-  <span class="va">data</span>,
-  extract_id_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Email address"</span>, <span class="st">"Institution"</span>, <span class="st">"Department"</span>, <span class="st">"ID number"</span><span class="op">)</span>,
-  id_regex <span class="op">=</span> <span class="st">".*"</span>,
-  sep_name <span class="op">=</span> <span class="st">" "</span>,
-  new_max_grade <span class="op">=</span> <span class="cn">NULL</span>,
-  round_digits <span class="op">=</span> <span class="fl">3</span>,
-  choose_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"max"</span>, <span class="st">"min"</span>, <span class="st">"mean"</span>, <span class="st">"all"</span><span class="op">)</span>,
-  choose_time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"last"</span>, <span class="st">"all"</span><span class="op">)</span>,
-  force_grade <span class="op">=</span> <span class="cn">F</span>,
-  sep_col <span class="op">=</span> <span class="st">"_"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">combine_grades</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  extract_id_from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Email address"</span>, <span class="st">"Institution"</span>, <span class="st">"Department"</span>, <span class="st">"ID number"</span><span class="op">)</span>,</span>
+<span>  id_regex <span class="op">=</span> <span class="st">".*"</span>,</span>
+<span>  sep_name <span class="op">=</span> <span class="st">" "</span>,</span>
+<span>  new_max_grade <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  round_digits <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  choose_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"max"</span>, <span class="st">"min"</span>, <span class="st">"mean"</span>, <span class="st">"all"</span><span class="op">)</span>,</span>
+<span>  choose_time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"last"</span>, <span class="st">"all"</span><span class="op">)</span>,</span>
+<span>  force_grade <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  sep_col <span class="op">=</span> <span class="st">"_"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>data</dt>
 <dd><p>A data.frame <strong>or</strong> named list of data.frame of <a href="https://docs.moodle.org/311/en/Quiz_reports" class="external-link">Moodle Grades report(s)</a> (not Responses report)</p></dd>
+
+
 <dt>extract_id_from</dt>
 <dd><p>(Character) Choose 1 column to extract ID from</p></dd>
+
+
 <dt>id_regex</dt>
 <dd><p>(Character) A regular expression used to extract ID from column "Email address" in the Moodle Quiz report. The default is "<code>.*</code>" meaning all characters.
 If your student email addresses has numeric IDs in them, try "<code>[:digit:]+</code>" to extract digits from the email.
 <strong>Note</strong>: Regular expression syntax is the same as <a href="https://github.com/rstudio/cheatsheets/blob/master/strings.pdf" class="external-link">stringr</a>.</p></dd>
+
+
 <dt>sep_name</dt>
 <dd><p>A character in the new "Name" column that separate original "First name" and "Surname".</p></dd>
+
+
 <dt>new_max_grade</dt>
 <dd><p>(Numeric) A desired new maximum grade(s) to adjust. If <code>NULL</code> (default): the new maximum grade is/are equal to the old maximum grade from the Moodle Grades report (in "Grade/xx" columns).
 <strong>Note</strong>: The new maximum grade will be appended at the "Grade_*" column names.</p><ul><li><p>If the <code>data</code> is a <strong>data.frame</strong>; enter <code>new_max_grade</code> as length 1 numeric vector to indicate the new maximum grade of that quiz.</p></li>
 <li><p>If the <code>data</code> is a <strong>named list of data.frame</strong>; enter <code>new_max_grade</code> as numeric vector to indicate new maximum grades corresponding to each quizzes (the element of list of data.frame).
 Length of <code>new_max_grade</code> must equal to length of list of data.frame.</p></li>
 </ul></dd>
+
+
 <dt>round_digits</dt>
 <dd><p>Length 1 numeric vector to indicate digits to round grades. If <code>NULL</code>: no round digits.</p></dd>
+
+
 <dt>choose_grade</dt>
 <dd><p>A character to filter student's attempt by score ("Grade/xx" column), useful when quiz has multiple attempts for each students.</p><ul><li><p><strong>"max"</strong> (default): return rows that have maximum score of each students.</p></li>
 <li><p><strong>"min"</strong>: return rows that have minimum score of each students.</p></li>
 <li><p><strong>"mean"</strong>: compute and return mean score of each students.</p></li>
 <li><p><strong>"all"</strong>: no filter applied, return all rows.</p></li>
 </ul></dd>
+
+
 <dt>choose_time</dt>
 <dd><p>A character to filter student's attempt by started time (determined by "Started on" column).
 This filter applies <strong>after</strong> <code>choose_grade</code> has been applied to the data.</p><ul><li><p><strong>"first"</strong> (default): return rows that represent first attempt of each students.</p></li>
 <li><p><strong>"last"</strong>: return rows that represent last attempt of each students.</p></li>
 <li><p><strong>"all"</strong>: no filter applied, return all rows after applying <code>choose_grade</code></p></li>
 </ul></dd>
+
+
 <dt>force_grade</dt>
 <dd><p>(Logical) If grade of any students was found to be "Not yet graded",
 you will get an error message. The purpose of this is to warn you that you might have forgotten to grade some students.
 If you want to bypass this behavior, set <code>force_grade = TRUE</code>.</p></dd>
+
+
 <dt>sep_col</dt>
 <dd><p>(Character) If <code>data</code> is a named list of data.frame, <code>sep_col</code> indicate a character separation between names of list and "State" or "Grade" columns.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p><strong>A data.frame</strong>, its output content is determined by class of its first argument: <code>data</code>.</p><ul><li><p>If the <code>data</code> is a data.frame; the output is a cleaned data.frame of Moodle Grades report, whether it was adjusted or filtered depends on other arguments.</p></li>
+    
+
+<p><strong>A data.frame</strong>, its output content is determined by class of its first argument: <code>data</code>.</p><ul><li><p>If the <code>data</code> is a data.frame; the output is a cleaned data.frame of Moodle Grades report, whether it was adjusted or filtered depends on other arguments.</p></li>
 <li><p>If the <code>data</code> is a named list of data.frame; the output is the same as previously described, but all Moodle Grades reports are <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full-joined</a> together by column "Name" and "ID".
 So that, "Grades_" columns from each data.frame are sit together in a single data.frame, and "Total_" column is added at the last column to indicate sum of all quizzes grades.</p></li>
 </ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Combine and Readjust Grades of Quiz 1</span></span>
-<span class="r-in"><span class="fu">combine_grades</span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span>,</span>
-<span class="r-in">               id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,</span>
-<span class="r-in">               new_max_grade <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Combine and Readjust Grades of Quiz 1</span></span></span>
+<span class="r-in"><span><span class="fu">combine_grades</span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span>,</span></span>
+<span class="r-in"><span>               id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>,</span></span>
+<span class="r-in"><span>               new_max_grade <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 26 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Name   ID    Institution Department State Grade_100 Started                Q1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jada … 017   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…      94.7 2021-06-02 <span style="color: #949494;">08:28:00</span>   2.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Ronin… 001   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…      97.4 2021-06-02 <span style="color: #949494;">14:21:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Jerry… 002   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…      94.7 2021-06-02 <span style="color: #949494;">16:04:00</span>   2.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Natha… 026   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…     100   2021-06-02 <span style="color: #949494;">00:00:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Rohit… 024   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…     100   2021-06-02 <span style="color: #949494;">14:47:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Joy E… 013   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…     100   2021-06-02 <span style="color: #949494;">03:56:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Jerem… 023   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…      92.1 2021-06-02 <span style="color: #949494;">08:09:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Chris… 003   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…      94.7 2021-06-02 <span style="color: #949494;">00:49:00</span>   2.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Israe… 018   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…     100   2021-06-02 <span style="color: #949494;">15:36:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Zubai… 022   <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>         Fini…     100   2021-06-02 <span style="color: #949494;">23:11:00</span>   7.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 16 more rows, and 7 more variables: Q2 &lt;dbl&gt;, Q3 &lt;dbl&gt;, Q4 &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Q5 &lt;dbl&gt;, Q6 &lt;dbl&gt;, Q7 &lt;dbl&gt;, Q8 &lt;dbl&gt;</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># Combine Grades of All Quizzes</span></span>
-<span class="r-in"><span class="fu">combine_grades</span><span class="op">(</span><span class="va">grades_ls</span>,</span>
-<span class="r-in">               id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Name      ID    Insti…¹ Depar…² State Grade…³ Started                Q1    Q2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jada Roq… 017   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…    94.7 2021-06-02 <span style="color: #949494;">08:28:00</span>   2.6   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Ronin Ali 001   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…    97.4 2021-06-02 <span style="color: #949494;">14:21:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Jerry Ho… 002   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…    94.7 2021-06-02 <span style="color: #949494;">16:04:00</span>   2.6   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Nathan B… 026   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…   100   2021-06-02 <span style="color: #949494;">00:00:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Rohith H… 024   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…   100   2021-06-02 <span style="color: #949494;">14:47:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Joy Ellis 013   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…   100   2021-06-02 <span style="color: #949494;">03:56:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Jeremy N… 023   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…    92.1 2021-06-02 <span style="color: #949494;">08:09:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Christop… 003   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…    94.7 2021-06-02 <span style="color: #949494;">00:49:00</span>   2.6   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Israel M… 018   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…   100   2021-06-02 <span style="color: #949494;">15:36:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Zubaida … 022   <span style="color: #BB0000;">NA</span>      <span style="color: #BB0000;">NA</span>      Fini…   100   2021-06-02 <span style="color: #949494;">23:11:00</span>   7.9   2.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 16 more rows, 6 more variables: Q3 &lt;dbl&gt;, Q4 &lt;dbl&gt;, Q5 &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Q6 &lt;dbl&gt;, Q7 &lt;dbl&gt;, Q8 &lt;dbl&gt;, and abbreviated variable names ¹​Institution,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​Department, ³​Grade_100</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Combine Grades of All Quizzes</span></span></span>
+<span class="r-in"><span><span class="fu">combine_grades</span><span class="op">(</span><span class="va">grades_ls</span>,</span></span>
+<span class="r-in"><span>               id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 26 × 9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Name          ID    Quiz_1_State Quiz_1_Grade_10 Quiz_2_State Quiz_2_Grade_10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jada Roquemo… 017   Finished                9.47 Finished                7.77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Ronin Ali     001   Finished                9.74 Finished                8.14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpa… 002   Finished                9.47 Finished                6.66</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Nathan Babbi… 026   Finished               10    Finished                7.4 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Rohith Huynh  024   Finished               10    Finished               10   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Joy Ellis     013   Finished               10    Finished                5.55</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson 023   Finished                9.21 Finished               10   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Christopher … 003   Finished                9.47 Finished                8.88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Israel Munoz  018   Finished               10    Finished                8.51</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Zubaida al-A… 022   Finished               10    Finished                8.88</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 16 more rows, and 3 more variables: Quiz_3_State &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Quiz_3_Grade_10 &lt;dbl&gt;, Total_30 &lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Name            ID    Quiz_…¹ Quiz_…² Quiz_…³ Quiz_…⁴ Quiz_…⁵ Quiz_…⁶ Total…⁷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Jada Roquemore  017   Finish…    9.47 Finish…    7.77 Finish…    9.99    27.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Ronin Ali       001   Finish…    9.74 Finish…    8.14 Finish…    9.28    27.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Jerry Hoffpauir 002   Finish…    9.47 Finish…    6.66 Finish…    9.99    26.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Nathan Babbitt  026   Finish…   10    Finish…    7.4  Finish…    9.99    27.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Rohith Huynh    024   Finish…   10    Finish…   10    Finish…    9.99    30.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Joy Ellis       013   Finish…   10    Finish…    5.55 Finish…    9.99    25.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Jeremy Nelson   023   Finish…    9.21 Finish…   10    Finish…    9.28    28.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Christopher Di… 003   Finish…    9.47 Finish…    8.88 Finish…    9.99    28.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Israel Munoz    018   Finish…   10    Finish…    8.51 Finish…    9.99    28.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Zubaida al-Att… 022   Finish…   10    Finish…    8.88 Finish…    9.99    28.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 16 more rows, and abbreviated variable names ¹​Quiz_1_State,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​Quiz_1_Grade_10, ³​Quiz_2_State, ⁴​Quiz_2_Grade_10, ⁵​Quiz_3_State,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​Quiz_3_Grade_10, ⁷​Total_30</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -177,7 +200,7 @@ So that, "Grades_" columns from each data.frame are sit together in a single dat
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer></div>

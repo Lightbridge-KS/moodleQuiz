@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A High-level R Package for Manipulation of Moodle Quiz Report">
 <meta property="og:description" content="Provide high-level ready-to-use functions for data wrangling (i.e., cleaning, filtering, and encoding)
@@ -86,8 +86,8 @@
 </h1>
 <p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Lightbridge-KS/moodleQuiz"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"Lightbridge-KS/moodleQuiz"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
@@ -111,89 +111,89 @@
 <h1 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h1>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Lightbridge-KS/moodleQuiz" class="external-link">moodleQuiz</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 <p>Let’s say I have a Moodle Grades Report data frame of “Quiz_1”</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 27</span>
-<span class="co">#&gt; Columns: 18</span>
-<span class="co">#&gt; $ Surname         &lt;chr&gt; "Roquemore", "Ali", "Hoffpauir", "Babbitt", "Huynh", "…</span>
-<span class="co">#&gt; $ `First name`    &lt;chr&gt; "Jada", "Ronin", "Jerry", "Nathan", "Rohith", "Joy", "…</span>
-<span class="co">#&gt; $ Institution     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="co">#&gt; $ Department      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span class="co">#&gt; $ `Email address` &lt;chr&gt; "u017@example.com", "u001@example.com", "u002@example.…</span>
-<span class="co">#&gt; $ State           &lt;chr&gt; "Finished", "Finished", "Finished", "Finished", "Finis…</span>
-<span class="co">#&gt; $ `Started on`    &lt;chr&gt; "2 June 2021 8:28 AM", "2 June 2021 2:21 PM", "2 June …</span>
-<span class="co">#&gt; $ `Time taken`    &lt;chr&gt; "16 mins 49 secs", "17 mins 11 secs", "11 mins 30 secs…</span>
-<span class="co">#&gt; $ Completed       &lt;chr&gt; "2 June 2021 8:45 AM", "2 June 2021 2:38 PM", "2 June …</span>
-<span class="co">#&gt; $ `Grade/10.00`   &lt;dbl&gt; 9.47, 9.74, 9.47, 10.00, 10.00, 10.00, 9.21, 9.47, 10.…</span>
-<span class="co">#&gt; $ `Q. 1 /0.79`    &lt;dbl&gt; 0.26, 0.79, 0.26, 0.79, 0.79, 0.79, 0.79, 0.26, 0.79, …</span>
-<span class="co">#&gt; $ `Q. 2 /0.26`    &lt;dbl&gt; 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, …</span>
-<span class="co">#&gt; $ `Q. 3 /2.37`    &lt;dbl&gt; 2.37, 2.37, 2.37, 2.37, 2.37, 2.37, 2.11, 2.37, 2.37, …</span>
-<span class="co">#&gt; $ `Q. 4 /2.11`    &lt;dbl&gt; 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 1.58, 2.11, 2.11, …</span>
-<span class="co">#&gt; $ `Q. 5 /2.11`    &lt;dbl&gt; 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, …</span>
-<span class="co">#&gt; $ `Q. 6 /0.26`    &lt;dbl&gt; 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, …</span>
-<span class="co">#&gt; $ `Q. 7 /1.05`    &lt;chr&gt; "1.05", "0.79", "1.05", "1.05", "1.05", "1.05", "1.05"…</span>
-<span class="co">#&gt; $ `Q. 8 /1.05`    &lt;dbl&gt; 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, …</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 27</span></span>
+<span><span class="co">#&gt; Columns: 18</span></span>
+<span><span class="co">#&gt; $ Surname         &lt;chr&gt; "Roquemore", "Ali", "Hoffpauir", "Babbitt", "Huynh", "…</span></span>
+<span><span class="co">#&gt; $ `First name`    &lt;chr&gt; "Jada", "Ronin", "Jerry", "Nathan", "Rohith", "Joy", "…</span></span>
+<span><span class="co">#&gt; $ Institution     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ Department      &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">#&gt; $ `Email address` &lt;chr&gt; "u017@example.com", "u001@example.com", "u002@example.…</span></span>
+<span><span class="co">#&gt; $ State           &lt;chr&gt; "Finished", "Finished", "Finished", "Finished", "Finis…</span></span>
+<span><span class="co">#&gt; $ `Started on`    &lt;chr&gt; "2 June 2021 8:28 AM", "2 June 2021 2:21 PM", "2 June …</span></span>
+<span><span class="co">#&gt; $ `Time taken`    &lt;chr&gt; "16 mins 49 secs", "17 mins 11 secs", "11 mins 30 secs…</span></span>
+<span><span class="co">#&gt; $ Completed       &lt;chr&gt; "2 June 2021 8:45 AM", "2 June 2021 2:38 PM", "2 June …</span></span>
+<span><span class="co">#&gt; $ `Grade/10.00`   &lt;dbl&gt; 9.47, 9.74, 9.47, 10.00, 10.00, 10.00, 9.21, 9.47, 10.…</span></span>
+<span><span class="co">#&gt; $ `Q. 1 /0.79`    &lt;dbl&gt; 0.26, 0.79, 0.26, 0.79, 0.79, 0.79, 0.79, 0.26, 0.79, …</span></span>
+<span><span class="co">#&gt; $ `Q. 2 /0.26`    &lt;dbl&gt; 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, …</span></span>
+<span><span class="co">#&gt; $ `Q. 3 /2.37`    &lt;dbl&gt; 2.37, 2.37, 2.37, 2.37, 2.37, 2.37, 2.11, 2.37, 2.37, …</span></span>
+<span><span class="co">#&gt; $ `Q. 4 /2.11`    &lt;dbl&gt; 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 1.58, 2.11, 2.11, …</span></span>
+<span><span class="co">#&gt; $ `Q. 5 /2.11`    &lt;dbl&gt; 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, 2.11, …</span></span>
+<span><span class="co">#&gt; $ `Q. 6 /0.26`    &lt;dbl&gt; 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, 0.26, …</span></span>
+<span><span class="co">#&gt; $ `Q. 7 /1.05`    &lt;chr&gt; "1.05", "0.79", "1.05", "1.05", "1.05", "1.05", "1.05"…</span></span>
+<span><span class="co">#&gt; $ `Q. 8 /1.05`    &lt;dbl&gt; 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, …</span></span></code></pre></div>
 <p><strong>Combine &amp; Adjust Grades of Quiz 1</strong></p>
 <p>How to choose the maximum score of each student and readjust maximum grades to 100?</p>
 <p>Calling <code><a href="reference/combine_grades.html">combine_grades()</a></code> will do that in one step, plus it also cleans column names and extracts numeric student ID from Email address.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="reference/combine_grades.html">combine_grades</a></span><span class="op">(</span>
-    extract_id_from <span class="op">=</span> <span class="st">"Email address"</span>, <span class="co"># Extract Student ID from Email</span>
-    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>, <span class="co"># Regular expression to extract student ID</span>
-    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span>
-    new_max_grade <span class="op">=</span> <span class="fl">100</span> <span class="co"># Adjust maximum grade to 100</span>
-  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 26 × 11</span>
-<span class="co">#&gt;    Name          ID    Grade_100    Q1    Q2    Q3    Q4    Q5    Q6    Q7    Q8</span>
-<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Jada Roquemo… 017        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  2 Ronin Ali     001        97.4   7.9   2.6  23.7  21.1  21.1   2.6   7.9  10.5</span>
-<span class="co">#&gt;  3 Jerry Hoffpa… 002        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  4 Nathan Babbi… 026       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  5 Rohith Huynh  024       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  6 Joy Ellis     013       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  7 Jeremy Nelson 023        92.1   7.9   2.6  21.1  15.8  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  8 Christopher … 003        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt;  9 Israel Munoz  018       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; 10 Zubaida al-A… 022       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span>
-<span class="co">#&gt; # … with 16 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span><span class="op">$</span><span class="va">Quiz_1</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="reference/combine_grades.html">combine_grades</a></span><span class="op">(</span></span>
+<span>    extract_id_from <span class="op">=</span> <span class="st">"Email address"</span>, <span class="co"># Extract Student ID from Email</span></span>
+<span>    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>, <span class="co"># Regular expression to extract student ID</span></span>
+<span>    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span></span>
+<span>    new_max_grade <span class="op">=</span> <span class="fl">100</span> <span class="co"># Adjust maximum grade to 100</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"G"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Q"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 26 × 11</span></span>
+<span><span class="co">#&gt;    Name          ID    Grade_100    Q1    Q2    Q3    Q4    Q5    Q6    Q7    Q8</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Jada Roquemo… 017        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  2 Ronin Ali     001        97.4   7.9   2.6  23.7  21.1  21.1   2.6   7.9  10.5</span></span>
+<span><span class="co">#&gt;  3 Jerry Hoffpa… 002        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  4 Nathan Babbi… 026       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  5 Rohith Huynh  024       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  6 Joy Ellis     013       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  7 Jeremy Nelson 023        92.1   7.9   2.6  21.1  15.8  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  8 Christopher … 003        94.7   2.6   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt;  9 Israel Munoz  018       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; 10 Zubaida al-A… 022       100     7.9   2.6  23.7  21.1  21.1   2.6  10.5  10.5</span></span>
+<span><span class="co">#&gt; # … with 16 more rows</span></span></code></pre></div>
 <p><strong>Combine Grades for All Quizzes</strong></p>
 <p>Supposed in a semester student have to do a graded assignment in a multiple quizzes, you can put each individual Grades Report in a list.</p>
 <p>Now it’s <strong>a list of data frames</strong> (here as <code>grades_ls</code>).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">is.data.frame</span><span class="op">)</span>
-<span class="co">#&gt; Quiz_1 Quiz_2 Quiz_3 </span>
-<span class="co">#&gt;   TRUE   TRUE   TRUE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">is.data.frame</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Quiz_1 Quiz_2 Quiz_3 </span></span>
+<span><span class="co">#&gt;   TRUE   TRUE   TRUE</span></span></code></pre></div>
 <p>Supply a list of data frames into <code><a href="reference/combine_grades.html">combine_grades()</a></code>, you can <em>combine</em> and <em>weight</em> grades from <strong>multiple quizzes</strong> into one data frame with a sum of student’s score in the <code>Total_x</code> column.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">grades_ls</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/combine_grades.html">combine_grades</a></span><span class="op">(</span>
-    extract_id_from <span class="op">=</span> <span class="st">"Email address"</span>, <span class="co"># Extract Student ID from Email</span>
-    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>, <span class="co"># Regular expression to extract student ID</span>
-    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span>
-    new_max_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span> <span class="co"># Adjust maximum grade to 100</span>
-  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Grade"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 26 × 6</span>
-<span class="co">#&gt;    Name          ID    Quiz_1_Grade_25 Quiz_2_Grade_25 Quiz_3_Grade_50 Total_100</span>
-<span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;           &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;     &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Jada Roquemo… 017              23.7            19.4            50.0      93.1</span>
-<span class="co">#&gt;  2 Ronin Ali     001              24.4            20.4            46.4      91.1</span>
-<span class="co">#&gt;  3 Jerry Hoffpa… 002              23.7            16.6            50.0      90.3</span>
-<span class="co">#&gt;  4 Nathan Babbi… 026              25              18.5            50.0      93.4</span>
-<span class="co">#&gt;  5 Rohith Huynh  024              25              25              50.0     100. </span>
-<span class="co">#&gt;  6 Joy Ellis     013              25              13.9            50.0      88.8</span>
-<span class="co">#&gt;  7 Jeremy Nelson 023              23.0            25              46.4      94.4</span>
-<span class="co">#&gt;  8 Christopher … 003              23.7            22.2            50.0      95.8</span>
-<span class="co">#&gt;  9 Israel Munoz  018              25              21.3            50.0      96.2</span>
-<span class="co">#&gt; 10 Zubaida al-A… 022              25              22.2            50.0      97.2</span>
-<span class="co">#&gt; # … with 16 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">grades_ls</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/combine_grades.html">combine_grades</a></span><span class="op">(</span></span>
+<span>    extract_id_from <span class="op">=</span> <span class="st">"Email address"</span>, <span class="co"># Extract Student ID from Email</span></span>
+<span>    id_regex <span class="op">=</span> <span class="st">"[:digit:]+"</span>, <span class="co"># Regular expression to extract student ID</span></span>
+<span>    choose_grade <span class="op">=</span> <span class="st">"max"</span>, <span class="co"># Choose only maximum grade of each student</span></span>
+<span>    new_max_grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">25</span>, <span class="fl">50</span><span class="op">)</span> <span class="co"># Adjust maximum grade to 100</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">ID</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"Grade"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"Total"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 26 × 6</span></span>
+<span><span class="co">#&gt;    Name          ID    Quiz_1_Grade_25 Quiz_2_Grade_25 Quiz_3_Grade_50 Total_100</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;           &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 Jada Roquemo… 017              23.7            19.4            50.0      93.1</span></span>
+<span><span class="co">#&gt;  2 Ronin Ali     001              24.4            20.4            46.4      91.1</span></span>
+<span><span class="co">#&gt;  3 Jerry Hoffpa… 002              23.7            16.6            50.0      90.3</span></span>
+<span><span class="co">#&gt;  4 Nathan Babbi… 026              25              18.5            50.0      93.4</span></span>
+<span><span class="co">#&gt;  5 Rohith Huynh  024              25              25              50.0     100. </span></span>
+<span><span class="co">#&gt;  6 Joy Ellis     013              25              13.9            50.0      88.8</span></span>
+<span><span class="co">#&gt;  7 Jeremy Nelson 023              23.0            25              46.4      94.4</span></span>
+<span><span class="co">#&gt;  8 Christopher … 003              23.7            22.2            50.0      95.8</span></span>
+<span><span class="co">#&gt;  9 Israel Munoz  018              25              21.3            50.0      96.2</span></span>
+<span><span class="co">#&gt; 10 Zubaida al-A… 022              25              22.2            50.0      97.2</span></span>
+<span><span class="co">#&gt; # … with 16 more rows</span></span></code></pre></div>
 </div>
 <div class="section level1">
 <h1 id="learn-more">Learn more<a class="anchor" aria-label="anchor" href="#learn-more"></a>
@@ -254,7 +254,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>
