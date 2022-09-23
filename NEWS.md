@@ -1,3 +1,7 @@
+# moodleQuiz 0.1.1
+
+-   Remove `Email address` column from the requirement to be a Moodle Quiz report.
+
 # moodleQuiz 0.1.0 🎓 🎉
 
 A high-level data manipulation R package 📦 for cleaning, encoding, filtering, and combining student's score and responses from [Moodle Quiz report](https://docs.moodle.org/311/en/Quiz_reports).
