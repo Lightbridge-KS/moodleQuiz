@@ -46,7 +46,8 @@ clean_moodle <- function(data,
 
   df_cleaned_1 <- data %>%
     # Filter out "Overall average" in the last row of Grade report
-    dplyr::filter(!is.na(`Email address`)) %>%
+    dplyr::filter(Surname != "Overall average") %>%
+    #dplyr::filter(!is.na(`Email address`)) %>%
     # Select Column that use in all type of Moodler Function
     dplyr::select(tidyselect::any_of(c("First name", "Surname",
                                        "ID number", # Custom column
@@ -59,7 +60,7 @@ clean_moodle <- function(data,
                   # Select Q. column (if any)
                   tidyselect::matches("Q\\.")) %>%
     tidyr::unite("First name", "Surname", col = "Name", sep = sep_name) %>%
-    dplyr::rename(Email = "Email address", Started ="Started on")
+    dplyr::rename(Started ="Started on")
 
   # Replace dash "-" with NA
   if(dash_na){
@@ -113,7 +114,7 @@ clean_moodle <- function(data,
   if(!extract_id) return(df_cleaned_2)
   # Extract Numeric ID from Email
   id_col_expr <- switch (extract_id_from,
-                         "Email address" = { dplyr::expr(Email) },
+                         "Email address" = { dplyr::expr(`Email address`) },
                          "Institution" = { dplyr::expr(Institution) },
                          "Department" = { dplyr::expr(Department) },
                          "ID number" = { dplyr::expr(`ID number`)}
@@ -124,3 +125,4 @@ clean_moodle <- function(data,
                   .keep = "unused", .after = Name)
 
 }
+
